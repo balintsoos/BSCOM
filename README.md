@@ -2,6 +2,6 @@
 My brief introduction site
 
 ## Production
-$ node install
-$ grunt
+'$ node install'
+'$ grunt'
 
