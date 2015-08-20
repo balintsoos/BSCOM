@@ -1,43 +1,57 @@
 module.exports = function(grunt) {
-
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		
+		watch: {
+			js: {
+				files: ['src/js/*.js'],
+				tasks: ['concat:js'],
+			},
+			css: {
+				files: ['src/css/*.css'],
+				tasks: ['concat:css'],
+			},
+		},
 		concat: {
 			js: {
-				src: ['sources/js/main.js', 'sources/js/backToTop.js'],
+				src: ['src/js/main.js', 'src/js/backToTop.js'],
 				dest: 'build/js/app.js',
 			},
 			css: {
-				src: ['sources/css/reset.css', 'sources/css/main.css', 'sources/css/backToTop.css'],
+				src: ['src/css/reset.css', 'src/css/main.css', 'src/css/backToTop.css'],
 				dest: 'build/css/style.css',
 			},
 		},
-		
-		watch: {
-			js: {
-				files: ['sources/js/*.js'],
-				tasks: ['concat'],
-			},
-			css: {
-				files: ['sources/css/*.css'],
-				tasks: ['concat'],
-				options: {
-					spawn: false,
-				},
+		copy: {
+			main: {
+				files: [
+					{
+						expand: true,
+						cwd: 'src/',
+						src: ['font/**'],
+						dest: 'build/',
+					},
+					{
+						expand: true,
+						cwd: 'src/',
+						src: ['img/**'],
+						dest: 'build/',
+					},
+					{
+						expand: true,
+						cwd: 'src/js/',
+						src: ['*.min.js'],
+						dest: 'build/js/',
+					},
+				],
 			},
 		},
-
 	});
-
 	// Load plugins
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	// Default task(s)
-	grunt.registerTask('default', ['concat', 'watch']);
-
+	grunt.registerTask('default', ['concat', 'copy', 'watch']);
 };
