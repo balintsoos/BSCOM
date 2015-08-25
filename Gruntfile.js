@@ -75,4 +75,5 @@ module.exports = function(grunt) {
 	
 	// Default task(s)
 	grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']);
+	grunt.registerTask('production', ['concat', 'sass', 'copy', 'watch']);
 };
