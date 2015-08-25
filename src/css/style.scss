@@ -1,18 +1,10 @@
 
 /* Main stylesheet */
 
-/* Color Palettes
-	New:
-	#2C3E50 - darkblue
-	#eee - white
-	#3498DB - home lightblue
-	#2980B9 - menu darkerblue
-
-	Old:
-	#444 -  darkgray
-	#eee -  white
-	#E74C3C - red
-*/
+$home-bg: #3498DB;
+$header-bg: #2980B9;
+$pair-card-bg: #2B3E51;
+$odd-card-bg: #EEEEEE;
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
 
@@ -24,7 +16,7 @@
 
 html, body {
 	height: 100%;
-	background-color: #3498DB;
+	background-color: $home-bg;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
@@ -62,10 +54,10 @@ a.sublink {
 }
 
 .trans {
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	-o-transition: all 0.4s ease;
-	transition: all 0.4s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 .shadow {
@@ -129,7 +121,7 @@ header {
 
 	header.sticky {
 		height: 80px;
-		background-color: #2980B9;
+		background-color: $header-bg;
 		-webkit-box-shadow: 0px -8px 21px 4px rgba(0,0,0,0.7);
 		-moz-box-shadow: 0px -8px 21px 4px rgba(0,0,0,0.7);
 		-o-box-shadow: 0px -8px 21px 4px rgba(0,0,0,0.7);
@@ -141,7 +133,7 @@ header {
 	}
 
 #home {
-	background-color: #3498DB;
+	background-color: $home-bg;
 	font-weight: 100;
 }
 	#home h1 {
@@ -198,11 +190,11 @@ header {
 	width: 100%;
 	height: 100%;
 	min-height: 700px;
-	background-color: #2C3E50;
+	background-color: $pair-card-bg;
 }
 .card:nth-of-type(odd) {
 	color: #444;
-	background-color: #eee;
+	background-color: $odd-card-bg;
 }
 
 .cardHeader {
