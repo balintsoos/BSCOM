@@ -7,29 +7,44 @@ $pair-card-bg: #2B3E51;
 $odd-card-bg: #EEEEEE;
 
 @mixin flexbox () {
-	display: -ms-flex;
-	display: -webkit-flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
 	display: flex;
 }
 
-@mixin box-shadow ($shadow) {
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	-o-box-shadow: $shadow;
-	box-shadow: $shadow;
+@mixin justify-content ($arg) {
+	-webkit-justify-content: $arg;
+	justify-content: $arg;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+@mixin align-items ($arg) {
+	-webkit-align-items: $arg;
+	-webkit-box-align: $arg;
+	-ms-flex-align: $arg;
+	align-items: $arg;
+}
+
+@mixin flex-wrap ($arg) {
+	-webkit-flex-wrap: $arg;
+	-ms-flex-wrap: $arg;
+	flex-wrap: $arg;
+}
+
+@mixin transition () {
+	transition: all 0.3s ease;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 
 *, *::after, *::before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 html, body {
 	height: 100%;
-	background-color: $home-bg;
+	background-color: $pair-card-bg;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
@@ -40,7 +55,7 @@ html {
 }
 
 body {
-	font-size : 1.8rem;
+	font-size : 1.6rem;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	line-height: 150%;
@@ -56,50 +71,40 @@ body {
 	user-select: none;
 }
 
+.shadow {
+	box-shadow: inset 0px 10px 21px -12px rgba(0,0,0,0.5);
+}
+
 a {
 	color: currentColor;
 	text-decoration: none;
-}
 
-a.sublink {
-	color: currentColor;
-	text-decoration: underline;
-}
-
-.trans {
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.shadow {
-	@include box-shadow(inset 0px 10px 21px -12px rgba(0,0,0,0.5));
+	&.sublink {
+		text-decoration: underline;
+	}
 }
 
 header {
 	position: fixed;
 	width: 100%;
-	height: 100px;
+	height: 80px;
 	@include flexbox();
-	-webkit-justify-content: space-around;
-	justify-content: space-around;
-	-webkit-align-items: center;
-	align-items: center;
-	z-index: 999;
+	@include justify-content(space-around);
+	@include align-items(center);
 	background-color: $header-bg;
-	@include box-shadow(0px -8px 21px 4px rgba(0,0,0,0.7));
+	z-index: 999;
 
 	div {
 		@include flexbox();
-		-webkit-align-items: center;
-		align-items: center;
+		@include align-items(center);
 
 		h1 {
-			font-weight: 100;
-			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
-			padding: 20px;
 			font-size: 4rem;
+			font-weight: 100;
+			padding: 20px;
+			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+			cursor: pointer;
+			@include transition();
 
 			&:hover, &:active {
 				text-shadow: 0px 5px 14px rgba(0,0,0,0.6);
@@ -107,18 +112,19 @@ header {
 		}
 	}
 
-
 	nav {
 		@include flexbox();
-		-webkit-align-items: center;
-		align-items: center;
+		@include align-items(center);
 
 		span {
-			margin: 15px;
-			padding-bottom: 5px;
+			margin: 10px;
+			padding: 5px;
+			font-size: 1.8rem;
 			border-bottom: 2px solid transparent;
+			text-transform: uppercase;
 			text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 			cursor: pointer;
+			@include transition();
 
 			&:hover {
 				border-bottom: 2px solid #fff;
@@ -134,21 +140,46 @@ header {
 
 } /* header end*/
 
+.card {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 700px;
+	background-color: $pair-card-bg;
+
+	&:nth-of-type(odd) {
+		color: #444;
+		background-color: $odd-card-bg;
+	}
+}
+
+.card-header {
+	position: relative;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	font-weight: 100;
+
+	h2 {
+		font-size: 3rem;
+	}
+}
+
+.card-content {
+	position: relative;
+	top: 0;
+	width: 40%;
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+
 #home {
 	background-color: $home-bg;
 	font-weight: 100;
-}
-	#home h1 {
-		display: none;
-		width: 100%;
-		position: absolute;
-		top: 100px;
-		color: #fff;
-		font-weight: 400;
-		text-align: center;
-		font-size: 6rem;
-	}
-	#home span {
+
+	span {
 		position: absolute;
 		top: 30%;
 		left: 16%;
@@ -158,6 +189,7 @@ header {
 		line-height: 120%;
 		text-align: right;
 	}
+}
 
 #face {
 	position: absolute;
@@ -165,76 +197,33 @@ header {
 	right: 15%;
 	width: 300px;
 	height: 300px;
-
+	border-radius: 50%;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	background-image: url("../img/face.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+
+#aboutme {
+	.card-content {
+		text-align: justify;
+	}
+}
+
+#contact {
+	.card-content  {
+		@include flexbox();
+		@include justify-content(center);
+		@include align-items(center);
+		@include flex-wrap(wrap);
 	
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-o-border-radius: 50%;
-	border-radius: 50%;
-
-	-webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	-o-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+		a {
+			@include transition();
+		}
+	}
 }
 
-#faceWrapper {
-	display: none;
-}
-
-.card {
-	position: relative;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	min-height: 700px;
-	background-color: $pair-card-bg;
-}
-.card:nth-of-type(odd) {
-	color: #444;
-	background-color: $odd-card-bg;
-}
-
-.cardHeader {
-	position: relative;
-	top: 0;
-	width: 100%;
-	padding-top: 5%;
-	padding-bottom: 5%;
-	text-align: center;
-	font-weight: 100;
-}
-
-.cardHeader h2 {
-	font-size: 3rem;
-	padding-top: 20px;
-}
-
-.cardContent {
-	position: relative;
-	top: 0;
-	width: 40%;
-	margin: 0 auto;
-	text-align: center;
-	overflow: hidden;
-}
-
-#aboutme .cardContent {
-	text-align: justify;
-}
-#contact .cardContent ul li {
-	display: inline;
-}
-#contact .cardContent ul li a {
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	-o-transition: all 0.4s ease;
-	transition: all 0.4s ease;
-}
 #fb:hover {color: #3b5998; /* Facebook blue */}
 #tw:hover {color: #55acee; /* Twitter blue */}
 #in:hover {color: #007bb6; /* LinkedIn blue */}
@@ -243,25 +232,19 @@ header {
 #gp:hover {color: #d34836; /* Google+ red */}
 
 footer {
-	position: absolute;
-	bottom: 10px;
+	position: relative;
 	width: 100%;
-	font-size: 0.75em;
-	text-align: center;
+	height: 80px;
+	@include flexbox();
+	@include justify-content(center);
+	@include align-items(center);
+	background-color: $pair-card-bg;
+	font-size: 1.2rem;
 }
 
 /*--------------------------------------------- Media Queries -----------------------------------------------*/
 
 @media only screen and (max-width: 1300px) {
-	header h1 {
-		left: 10%;
-	}
-	header.sticky h1 {
-		left: 15%;
-	}
-	header nav {
-		right: 5%;
-	}
 	#face {
 		right: 10%;
 	}
@@ -269,7 +252,7 @@ footer {
 		left: 10%;
 		width: 45%;
 	}
-	#cardContent {
+	#card-content {
 		width: 60%;
 	}
 }
@@ -332,14 +315,8 @@ footer {
 		background-repeat: no-repeat;
 		background-position: center center;
 		
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;
-		-o-border-radius: 50%;
 		border-radius: 50%;
 
-		-webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-		-moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-		-o-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	}
 	.card {
@@ -353,7 +330,7 @@ footer {
 		font-size: 2rem;
 		padding-top: 10px;
 	}
-	.cardContent {
+	.card-content {
 		width: 85%;
 		font-size: 1.4rem;
 	}
