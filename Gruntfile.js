@@ -27,12 +27,6 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						cwd: 'src/',
-						src: ['font/**'],
-						dest: 'build/',
-					},
-					{
-						expand: true,
-						cwd: 'src/',
 						src: ['img/**'],
 						dest: 'build/',
 					},
@@ -75,4 +69,5 @@ module.exports = function(grunt) {
 	
 	// Default task(s)
 	grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']);
+	grunt.registerTask('production', ['concat', 'sass', 'copy', 'watch']);
 };
