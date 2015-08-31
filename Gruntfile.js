@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 			},
 			scss: {
 				files: ['src/css/*.scss'],
-				tasks: ['sass'],
+				tasks: ['sass', 'concat:css', 'cssmin'],
 			},
 		},
 		
@@ -18,6 +18,10 @@ module.exports = function(grunt) {
 			js: {
 				src: ['src/js/main.js'],
 				dest: 'build/js/app.js',
+			},
+			css: {
+				src: ['src/css/reset.css', 'build/css/style.css'],
+				dest: 'build/css/style.css',
 			},
 		},
 		
@@ -36,29 +40,38 @@ module.exports = function(grunt) {
 						src: ['*.min.js'],
 						dest: 'build/js/',
 					},
-					{
-						expand: true,
-						cwd: 'src/css/',
-						src: ['reset.css'],
-						dest: 'build/css/',
-					},
 				],
 			},
 		},
 
 		sass: {
 			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/',
-						src: ['css/*.scss'],
-						dest: 'build/',
-						ext: '.css',
-					}
-				],
-			}
-		}
+				options: {
+					style: 'expanded',
+					lineNumbers: true,
+					sourcemap: 'none'
+				},
+				files: [{
+					expand: true,
+					cwd: 'src/',
+					src: ['css/*.scss'],
+					dest: 'build/',
+					ext: '.css',
+				}],
+			},
+		},
+
+		cssmin: {
+			main: {
+				files: [{
+					expand: true,
+					cwd: 'build/css/',
+					src: ['*.css', '!*.min.css'],
+					dest: 'build/css/',
+					ext: '.min.css',
+				}],
+			},
+		},
 	});
 	
 	// Load plugins
@@ -66,8 +79,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	
 	// Default task(s)
-	grunt.registerTask('default', ['concat', 'sass', 'copy', 'watch']);
-	grunt.registerTask('production', ['concat', 'sass', 'copy', 'watch']);
+	grunt.registerTask('default', ['sass', 'concat', 'cssmin', 'copy', 'watch']);
 };

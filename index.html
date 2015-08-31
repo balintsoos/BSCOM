@@ -49,12 +49,11 @@
 	<meta property="og:image:width" content="663" />
 	<meta property="og:image:height" content="694" />
 	<!-- Links -->
-	<link rel="stylesheet" type="text/css" href="build/css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="build/css/style.css" />
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:400,100'>
+	<link rel="stylesheet" type="text/css" href="build/css/style.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="build/img/favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="build/img/favicon.ico" type="image/x-icon" />
-
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -65,26 +64,18 @@
 	ga('send', 'pageview');
 	</script>
 </head>
-
 <body class="no-select">
 	<header>
-		<div>
-			<i class="fa fa-bars fa-2x"></i>
-			<h1 data-bind="text: headerTitle"></h1>
-		</div>
-		<nav data-bind="foreach: $root.menuItems">
+		<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
+		<nav data-bind="foreach: $root.sections">
 			<span data-bind='text: title, click: $root.selectItem'></span>
 		</nav>
 	</header>
-	
-
-	<section id="home" class="card">
+	<section id="home" class="card shadow">
 		<span>If something is worth doing twice, it's worth building a tool to do it.</span>
 		<div id="face"></div>
 	</section>
-
-
-	<section id="aboutme" class="card">
+	<section id="aboutme" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-user fa-2x"></i>
 			<h2>ABOUT ME</h2>
@@ -97,19 +88,16 @@
 			<p>If you have any further questions about me, my works or if you just want to hang out, please contact me.</p>
 		</div>
 	</section>
-
-
-	<section id="work" class="card">
+	<section id="work" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-code fa-2x"></i>
 			<h2>I'VE WORKED WITH</h2>
 		</div>
 		<div class="card-content">
 			<p>Sorry, this section is under construction but feel free to check out <a class="sublink" href="http://linkedin.com/in/balintsoos" target="_blank">my LinkedIn profile</a></p>
+		</div>
 	</section>
-
-
-	<section id="projects" class="card">
+	<section id="projects" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-archive fa-2x"></i>
 			<h2>MY RECENT PROJECTS</h2>
@@ -118,8 +106,7 @@
 			<p>Sorry, this section is under construction but feel free to <a class="sublink" href='#contact'>contact</a> with me and ask any questions you may have :)</p>
 		</div>
 	</section>
-
-	<section id="contact" class="card">
+	<section id="contact" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-comments fa-2x"></i>
 			<h2>CONTACT WITH ME</h2>
@@ -164,13 +151,10 @@
 			</a>
 		</div>	
 	</section>
-
-	<footer>
+	<footer class="shadow">
 		<span>Made with <i class="fa fa-heart-o"></i> by Balint Soos</span>
 	</footer>
-
 	<!-- Scripts -->
-	<script type="text/javascript" src="build/js/jquery-1.11.2.min.js" async></script>
 	<script type='text/javascript' src='build/js/knockout-3.3.0.min.js' async></script>
 	<script type="text/javascript" src="build/js/app.js" async></script>
 	<script type="application/ld+json">
