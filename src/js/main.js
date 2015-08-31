@@ -26,7 +26,6 @@ function AppViewModel () {
 		obj.isSelected 	= ko.computed(function () {
 			return (self.selectedItem().id === id);
 		});
-		
 		return obj;
 	}
 
@@ -58,7 +57,6 @@ function AppViewModel () {
 			)
 		]);
 	}
-
 	self.init();
 }
 

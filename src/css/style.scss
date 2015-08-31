@@ -39,6 +39,13 @@ $font-color-invert: #444;
 	flex-wrap: $arg;
 }
 
+@mixin transform ($arg) {
+	-webkit-transform: $arg;
+	-moz-transform: $arg;
+	-ms-transform: $arg;
+	transform: $arg;
+}
+
 @mixin transition () {
 	transition: all 0.3s ease;
 }
@@ -100,43 +107,61 @@ header {
 	z-index: 999;
 	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
 
-	h1 {
-		font-size: 4rem;
-		font-weight: 100;
+	div {
+		height: 100%;
+		@include flexbox();
+		@include align-items(center);
 		padding: 20px;
-		text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+		@include transform(skewX(-25deg));
 		cursor: pointer;
 		@include transition();
-
 		&:hover, &:active {
+			background-color: #2472a4;
 			text-shadow: 0px 5px 14px rgba(0,0,0,0.6);
+		}
+
+		h1 {
+			font-size: 4rem;
+			font-weight: 100;
+			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+			@include transform(skewX(25deg));
 		}
 	}
 
+
 	nav {
+		height: 100%;
 		@include flexbox();
 		@include align-items(center);
 
-		span {
-			margin: 10px;
-			padding: 5px;
-			font-size: 1.8rem;
-			border-bottom: 2px solid transparent;
-			text-transform: uppercase;
-			text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+		div {
+			height: 100%;
+			@include flexbox();
+			@include align-items(center);
+			padding: 15px;
+			border-top: 3px solid transparent;
+			@include transform(skewX(-25deg));
 			cursor: pointer;
 			@include transition();
-
 			&:hover {
-				border-bottom: 2px solid #fff;
+				background-color: #2472a4;
+				border-top: 3px solid transparent;
+				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+			}
+			&.active {
+				background-color: #2472a4;
+				border-top: 3px solid #fff;
 				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
 			}
 
-			&.active {
-				border-bottom: 2px solid #fff;
-				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+			span {
+				@include transform(skewX(25deg));
+				font-size: 1.8rem;
+				text-transform: uppercase;
+				text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 			}
 		}
+
 	}
 } /* header end*/
 
@@ -146,6 +171,8 @@ header {
 	width: 100%;
 	height: 100%;
 	min-height: 700px;
+	padding-top: 80px;
+	padding-bottom: 80px;
 	@include flexbox();
 	@include justify-content(center);
 	@include align-items(center);
@@ -163,12 +190,13 @@ header {
 	position: relative;
 	top: 0;
 	width: 100%;
-	margin: 40px;
+	margin-bottom: 40px;
 	text-align: center;
 	font-weight: 100;
 
 	h2 {
 		font-size: 3rem;
+		margin-top: 10px; 
 	}
 }
 
@@ -184,9 +212,18 @@ header {
 	background-color: $home-bg;
 	font-weight: 100;
 
+	h1 {
+		display: none;
+		color: #fff;
+		font-size: 5rem;
+		font-weight: 100;
+		text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+	}
+
 	span {
 		color: #fff;
 		font-size: 3.8rem;
+		text-align: center;
 		line-height: 120%;
 	}
 }
@@ -194,6 +231,7 @@ header {
 #face {
 	width: 300px;
 	height: 300px;
+	margin: 15px;
 	border-radius: 50%;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	background-image: url("../img/face.jpg");
@@ -242,11 +280,7 @@ footer {
 /*--------------------------------------------- Media Queries -----------------------------------------------*/
 
 @media only screen and (max-width: 1300px) {
-	#face {
-		right: 10%;
-	}
 	#home span {
-		left: 10%;
 		width: 45%;
 	}
 	#card-content {
@@ -257,32 +291,36 @@ footer {
 @media only screen and (max-width: 1000px) {
 	header {
 		height: 60px;
-		width: 100%;
 	}
-	header nav{
+	header > div {
+		display: none;
+	}
+	header > nav > div > span{
 		font-size: 1.2rem;
 	}
-	#home span {
-		top: 160px;
-		width: 80%;
-		font-size: 2.4rem;
-		text-align: center;
-		padding-top: 15px;
-		border-top: 1px solid #fff;
-	}
 	.card {
-		height: 700px;
+		height: auto;
+		min-height: auto;
 	}
 	.card-header {
 		font-size: 1.5rem;
-		padding-bottom: 7%;
 	}
 	.card-header h2 {
 		font-size: 2rem;
-		padding-top: 10px;
 	}
 	.card-content {
 		width: 85%;
 		font-size: 1.4rem;
+	}
+	#home h1 {
+		display: inline;
+		margin-top: 15px;
+		margin-bottom: 15px; 
+	}
+	#home span {
+		width: 80%;
+		font-size: 2.4rem;
+		padding-top: 15px;
+		border-top: 1px solid #fff;
 	}
 }

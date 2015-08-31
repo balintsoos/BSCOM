@@ -66,12 +66,17 @@
 </head>
 <body class="no-select">
 	<header>
-		<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
+		<div data-bind="click: $root.goHome">
+			<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
+		</div>
 		<nav data-bind="foreach: $root.sections">
-			<span data-bind='text: title, click: $root.selectItem, css: {active: isSelected}'></span>
+			<div data-bind="click: $root.selectItem, css: {active: isSelected}">
+				<span data-bind='text: title'></span>
+			</div>
 		</nav>
 	</header>
 	<section id="home" class="card shadow">
+		<h1 data-bind="text: headerTitle"></h1>
 		<span>If something is worth doing twice, it's worth building a tool to do it.</span>
 		<div id="face"></div>
 	</section>
