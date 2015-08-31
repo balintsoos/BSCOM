@@ -1,33 +1,33 @@
-function secItem (id, title, header, icon, content) {
-	var obj = {};
-
-	return {
-		id: id,
-		title: title,
-		header: header,
-		icon: icon,
-		content: content,
-		isSelected: ko.computed(function () {
-
-		})
-	}
-}
 
 function AppViewModel () {
 	var self = this;
 
 	self.headerTitle = ko.observable("Balint Soos");
 	self.sections = ko.observableArray();
-	self.selectedItem = ko.observable();
+	self.selectedItem = ko.observable({});
 
 	self.selectItem = function (item) {
-		console.log(item);
+		//console.log(item);
 		self.selectedItem(item);
 		location.href = "#" + item.id;
 	}
 
 	self.goHome = function () {
 		location.href = "#home";
+	}
+
+	var secItem  = function (id, title, header, icon, content) {
+		var obj 				= {};
+		obj.id 					= id;
+		obj.title 			= title;
+		obj.header 			= header;
+		obj.icon 				= icon;
+		obj.content 		= content;
+		obj.isSelected 	= ko.computed(function () {
+			return (self.selectedItem().id === id);
+		});
+		
+		return obj;
 	}
 
 	self.init = function () {

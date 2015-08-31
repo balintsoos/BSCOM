@@ -68,7 +68,7 @@
 	<header>
 		<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
 		<nav data-bind="foreach: $root.sections">
-			<span data-bind='text: title, click: $root.selectItem'></span>
+			<span data-bind='text: title, click: $root.selectItem, css: {active: isSelected}'></span>
 		</nav>
 	</header>
 	<section id="home" class="card shadow">
