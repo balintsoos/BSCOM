@@ -7,14 +7,21 @@ function AppViewModel () {
 	self.selectedItem = ko.observable({});
 
 	self.selectItem = function (item) {
-		//console.log(item);
-		self.selectedItem(item);
 		location.href = "#" + item.id;
+		self.selectedItem(item);
 	}
 
 	self.goHome = function () {
 		location.href = "#home";
 	}
+
+	var wpHome = new Waypoint({
+		element: document.getElementById('home'),
+		handler: function () {
+			self.selectedItem({});
+		},
+		offset: '-50%',
+	});
 
 	var secItem  = function (id, title, header, icon, content) {
 		var obj 				= {};
@@ -26,7 +33,29 @@ function AppViewModel () {
 		obj.isSelected 	= ko.computed(function () {
 			return (self.selectedItem().id === id);
 		});
+		obj.wpTop = new Waypoint({
+			element: document.getElementById(id),
+			handler: function () {
+				self.setSelectedItem(id);
+			},
+			offset: '20%',
+		});
+		obj.wpBottom = new Waypoint({
+			element: document.getElementById(id),
+			handler: function () {
+				self.setSelectedItem(id);
+			},
+			offset: '-50%',
+		});
 		return obj;
+	}
+
+	self.setSelectedItem = function (id) {
+		self.sections().forEach(function (section) {
+			if (section.id === id) {
+				self.selectedItem(section);
+			}
+		});
 	}
 
 	self.init = function () {
