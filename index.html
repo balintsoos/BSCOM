@@ -65,7 +65,7 @@
 	</script>
 </head>
 <body class="no-select">
-	<header>
+	<header data-bind="css: {sticky: isSticky}">
 		<div data-bind="click: $root.goHome">
 			<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
 		</div>
@@ -75,7 +75,7 @@
 			</div>
 		</nav>
 	</header>
-	<section id="home" class="card shadow">
+	<section id="home" class="card">
 		<h1 data-bind="text: headerTitle"></h1>
 		<span>If something is worth doing twice, it's worth building a tool to do it.</span>
 		<div id="face"></div>

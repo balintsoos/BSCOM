@@ -3,6 +3,7 @@ function AppViewModel () {
 	var self = this;
 
 	self.headerTitle = ko.observable("Balint Soos");
+	self.isSticky = ko.observable(false);
 	self.sections = ko.observableArray();
 	self.selectedItem = ko.observable({});
 
@@ -21,6 +22,18 @@ function AppViewModel () {
 			self.selectedItem({});
 		},
 		offset: '-50%',
+	});
+
+	var wpSticky = new Waypoint({
+		element: document.getElementById('home'),
+		handler: function () {
+			if(self.isSticky()) {
+				self.isSticky(false);
+			} else {
+				self.isSticky(true);
+			}
+		},
+		offset: -1,
 	});
 
 	var secItem  = function (id, title, header, icon, content) {
