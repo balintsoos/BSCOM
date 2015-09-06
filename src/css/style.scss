@@ -104,6 +104,7 @@ header {
 	@include justify-content(space-around);
 	@include align-items(center);
 	@include transition();
+	background-color: $home-bg;
 	z-index: 999;
 
 	&.sticky, &:hover {
@@ -131,7 +132,6 @@ header {
 			@include transform(skewX(25deg));
 		}
 	}
-
 
 	nav {
 		height: 100%;
