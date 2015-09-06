@@ -206,9 +206,21 @@ header {
 .card-content {
 	position: relative;
 	top: 0;
-	width: 40%;
+	width: 100%;
 	text-align: center;
+	@include flexbox();
+	@include justify-content(center);
+	@include align-items(center);
+	@include flex-direction(row);
+	@include flex-wrap(wrap);
 	overflow: hidden;
+
+	div.text {
+		width: 40%;
+		p {
+			padding-bottom: 15px;
+		}
+	}
 }
 
 #home {
@@ -234,7 +246,7 @@ header {
 #face {
 	width: 300px;
 	height: 300px;
-	margin: 15px;
+	margin: 30px;
 	border-radius: 50%;
 	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 	background-image: url("../img/face.jpg");
@@ -244,18 +256,13 @@ header {
 }
 
 #aboutme {
-	.card-content {
+	.card-content div.text {
 		text-align: justify;
 	}
 }
 
 #contact {
 	.card-content  {
-		@include flexbox();
-		@include justify-content(center);
-		@include align-items(center);
-		@include flex-wrap(wrap);
-	
 		a {
 			@include transition();
 		}
@@ -268,6 +275,7 @@ header {
 #gh:hover {color: #202229; /* GitHub black */}
 #ig:hover {color: #517fa4; /* Instagram blue */}
 #gp:hover {color: #d34836; /* Google+ red */}
+#em:hover {color: #FF6D3F; /* Email */}
 
 footer {
 	position: relative;
@@ -286,7 +294,7 @@ footer {
 	#home span {
 		width: 45%;
 	}
-	#card-content {
+	#card-content div.text {
 		width: 60%;
 	}
 }
@@ -298,17 +306,17 @@ footer {
 	header > div {
 		display: none;
 	}
-	header > nav > div > span{
+	header > nav > div > span {
 		font-size: 1.2rem;
 	}
-	.card-header {
-		font-size: 1.5rem;
-	}
 	.card-header h2 {
-		font-size: 2rem;
+		font-size: 1.8rem;
 	}
 	.card-content {
 		width: 85%;
+	}
+	.card-content div.text {
+		width: 100%;
 		font-size: 1.4rem;
 	}
 	#home h1 {
@@ -321,5 +329,9 @@ footer {
 		font-size: 2.4rem;
 		padding-top: 15px;
 		border-top: 1px solid #fff;
+	}
+	#face {
+		margin: 0;
+		margin-bottom: 20px
 	}
 }
