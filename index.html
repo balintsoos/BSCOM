@@ -63,8 +63,54 @@
 	ga('create', 'UA-58426138-1', 'auto');
 	ga('send', 'pageview');
 	</script>
+	<style type="text/css">
+		.parallax-container {
+			height: 1000px; /* fallback for older browsers */
+			height: 100vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			-webkit-perspective: 300px;
+			perspective: 300px;
+			-webkit-perspective-origin-x: 100%;
+			perspective-origin-x: 100%;
+		}
+		section {
+			position: relative;
+			height: 500px; /* fallback for older browsers */
+			height: 100vh;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.parallax-layer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			-webkit-transform-origin-x: 100%;
+			transform-origin-x: 100%;
+		}
+		.layer-base {
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+			z-index: 4;
+		}
+		.layer-back {
+			-webkit-transform: translateZ(-300px) scale(2);
+			transform: translateZ(-300px) scale(2);
+			z-index: 3;
+		}
+		#home {
+			z-index: 3;
+		}
+		#aboutme {
+			z-index: 5;
+		}
+	</style>
+
 </head>
 <body class="no-select">
+	<!-- Header -->
 	<header data-bind="css: {sticky: isSticky}">
 		<div data-bind="click: $root.goHome">
 			<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
@@ -75,10 +121,21 @@
 			</div>
 		</nav>
 	</header>
+
+	<!-- Parallax START -->
+	<div class="parallax-contaier">
+	<!-- Home -->
 	<section id="home" class="card">
-		<h1 data-bind="text: headerTitle"></h1>
-		<span>If something is worth doing twice, it's worth building a tool to do it.</span>
+		<div class="parallax-layer layer-base">
+			<h1 data-bind="text: headerTitle"></h1>
+			<span>If something is worth doing twice, it's worth building a tool to do it.</span>
+		</div>
+		<div class="parallax-layer layer-back">
+			<!-- Parallax background -->
+		</div>
 	</section>
+
+	<!-- About Me -->
 	<section id="aboutme" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-user fa-2x"></i>
@@ -93,6 +150,8 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Work -->
 	<section id="work" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-code fa-2x"></i>
@@ -104,6 +163,8 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Projects -->
 	<section id="projects" class="card shadow">
 		<div class="card-header">
 			<i class="fa fa-archive fa-2x"></i>
@@ -169,6 +230,8 @@
 	<footer class="shadow">
 		<span>Made with <i class="fa fa-heart-o"></i> by Balint Soos</span>
 	</footer>
+ 	<!-- Parallax END -->
+	</div>
 	<!-- Scripts -->
 	<script type='text/javascript' src='build/js/knockout-3.3.0.min.js' defer></script>
 	<script type="text/javascript" src="build/js/noframework.waypoints.min.js" defer></script>
