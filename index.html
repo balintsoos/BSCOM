@@ -65,18 +65,28 @@
 	</script>
 </head>
 <body class="no-select">
-	<header data-bind="css: {sticky: isSticky}">
-		<div data-bind="click: $root.goHome">
-			<h1 data-bind="text: headerTitle, click: $root.goHome"></h1>
+	<header class="header-desktop" data-bind="css: {sticky: isSticky}">
+		<div class="logo" data-bind="click: $root.goHome">
+			<h1 data-bind="text: headerTitle"></h1>
 		</div>
-		<nav data-bind="foreach: $root.sections">
+		<nav class="nav-desktop" data-bind="foreach: $root.sections">
+			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
+				<span data-bind='text: title'></span>
+			</div>
+		</nav>
+	</header>
+	<header class="header-mobile">
+		<div class="button-nav-toggle"><i class="fa fa-bars fa-lg"></i></div>
+		<div class="logo" data-bind="click: $root.goHome">
+			<h1 data-bind="text: headerTitle"></h1>
+		</div>
+		<nav class="nav-mobile" data-bind="foreach: $root.sections">
 			<div data-bind="click: $root.selectItem, css: {active: isSelected}">
 				<span data-bind='text: title'></span>
 			</div>
 		</nav>
 	</header>
 	<section id="home" class="card card-odd">
-		<h1 data-bind="text: headerTitle"></h1>
 		<span>If something is worth doing twice, it's worth building a tool to do it.</span>
 	</section>
 	<section id="aboutme" class="card card-pair">

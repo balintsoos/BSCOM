@@ -96,29 +96,40 @@ a {
 	}
 }
 
-header {
+.header-desktop, .header-mobile {
 	position: fixed;
 	width: 100%;
-	height: 80px;
 	@include flexbox();
-	@include justify-content(space-around);
 	@include align-items(center);
 	@include transition();
 	z-index: 999;
+
+	.logo {
+		height: 100%;
+		@include flexbox();
+		@include align-items(center);
+		@include transition();
+		cursor: pointer;
+
+		h1 {
+			font-weight: 100;
+			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+		}
+	}
+}
+
+.header-desktop {
+	height: 80px;
+	@include justify-content(space-around);
 
 	&.sticky, &:hover {
 		background-color: $header-bg;
 		box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
 	}
 
-	div {
-		height: 100%;
+	.logo {
 		padding: 20px;
-		@include flexbox();
-		@include align-items(center);
 		@include transform(skewX(-25deg));
-		@include transition();
-		cursor: pointer;
 		
 		&:hover, &:active {
 			background-color: #2472a4;
@@ -127,18 +138,16 @@ header {
 
 		h1 {
 			font-size: 4rem;
-			font-weight: 100;
-			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
 			@include transform(skewX(25deg));
 		}
 	}
 
-	nav {
+	.nav-desktop {
 		height: 100%;
 		@include flexbox();
 		@include align-items(center);
 
-		div {
+		.menu-item {
 			height: 100%;
 			padding: 15px;
 			@include flexbox();
@@ -158,7 +167,6 @@ header {
 			&.active {
 				border-top: 3px solid #fff;
 			}
-
 			span {
 				@include transform(skewX(25deg));
 				font-size: 1.8rem;
@@ -166,9 +174,30 @@ header {
 				text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 			}
 		}
-
 	}
-} /* header end*/
+}
+
+.header-mobile {
+	display: none;
+	height: 60px;
+	background-color: $header-bg;
+	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+
+	.button-nav-toggle {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.logo {
+		h1 {
+			font-size: 2.5rem;
+		}
+	}
+
+	.nav-mobile {
+		display: none;
+	}
+}
 
 .card {
 	position: relative;
@@ -233,16 +262,10 @@ header {
 	background-image: url("../img/shuttle.png");
 	background-repeat: no-repeat;
 	background-position: center bottom;
-	background-size: 35%;
+	background-size: auto 30%;
 	//background-attachment: fixed;
 	font-weight: 100;
 
-	h1 {
-		display: none;
-		font-size: 5rem;
-		font-weight: 100;
-		text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
-	}
 	span {
 		font-size: 3.8rem;
 		text-align: center;
@@ -307,14 +330,11 @@ footer {
 }
 
 @media only screen and (max-width: 1000px) {
-	header {
-		height: 60px;
-	}
-	header > div {
+	.header-desktop {
 		display: none;
 	}
-	header > nav > div > span {
-		font-size: 1.2rem;
+	.header-mobile {
+		@include flexbox();
 	}
 	.card-header h2 {
 		font-size: 1.8rem;
@@ -327,18 +347,11 @@ footer {
 		font-size: 1.4rem;
 	}
 	#home {
-		background-size: 70%;
-	}
-	#home h1 {
-		display: inline;
-		margin-top: 15px;
-		margin-bottom: 15px; 
+		background-size: auto 40%;
 	}
 	#home span {
 		width: 80%;
 		font-size: 2.4rem;
-		padding-top: 15px;
-		border-top: 1px solid #fff;
 	}
 	#face {
 		margin: 0;
