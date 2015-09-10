@@ -10,11 +10,11 @@ function AppViewModel () {
 	self.selectItem = function (item) {
 		location.href = "#" + item.id;
 		self.selectedItem(item);
-	}
+	};
 
 	self.goHome = function () {
 		location.href = "#home";
-	}
+	};
 
 	var wpHome = new Waypoint({
 		element: document.getElementById('home'),
@@ -61,7 +61,7 @@ function AppViewModel () {
 			offset: '-50%',
 		});
 		return obj;
-	}
+	};
 
 	self.setSelectedItem = function (id) {
 		self.sections().forEach(function (section) {
@@ -69,7 +69,7 @@ function AppViewModel () {
 				self.selectedItem(section);
 			}
 		});
-	}
+	};
 
 	self.init = function () {
 		self.sections([
@@ -98,7 +98,8 @@ function AppViewModel () {
 				'fa fa-comments fa-2x'
 			)
 		]);
-	}
+	};
+	
 	self.init();
 }
 
