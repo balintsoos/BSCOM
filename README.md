@@ -1,5 +1,5 @@
 # BalintSoos.com
-My brief introduction site
+My Interactive Portfolio and Resume site [Check it out!](http://balintsoos.com)
 
 ## Production
 First, you should install depedencies:
@@ -20,7 +20,7 @@ Never upload the src folder to the server, it's for development purposes only.
 * CSS3
 * Sass
 * JavaScript
+* Node.js
 * Knockout.js
 * Waypoints.js
 * Grunt
-
