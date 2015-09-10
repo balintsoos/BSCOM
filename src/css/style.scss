@@ -104,7 +104,7 @@ header {
 	@include justify-content(space-around);
 	@include align-items(center);
 	@include transition();
-	background-color: $home-bg;
+	//background-color: $home-bg;
 	z-index: 999;
 
 	&.sticky, &:hover {
@@ -140,22 +140,22 @@ header {
 
 		div {
 			height: 100%;
+			padding: 15px;
 			@include flexbox();
 			@include align-items(center);
-			padding: 15px;
-			border-top: 3px solid transparent;
 			@include transform(skewX(-25deg));
-			cursor: pointer;
 			@include transition();
-			&:hover {
+			border-top: 3px solid transparent;
+			cursor: pointer;
+			&:hover, &.active {
 				background-color: #2472a4;
-				border-top: 3px solid transparent;
 				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
 			}
+			&:hover {
+				border-top: 3px solid transparent;
+			}
 			&.active {
-				background-color: #2472a4;
 				border-top: 3px solid #fff;
-				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
 			}
 
 			span {
@@ -225,6 +225,11 @@ header {
 
 #home {
 	background-color: $home-bg;
+	background-image: url("../img/yosemite-bg.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
 	font-weight: 100;
 
 	h1 {
@@ -243,6 +248,12 @@ header {
 	}
 }
 
+#aboutme {
+	.card-content div.text {
+		text-align: justify;
+	}
+}
+
 #face {
 	width: 300px;
 	height: 300px;
@@ -253,12 +264,6 @@ header {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-}
-
-#aboutme {
-	.card-content div.text {
-		text-align: justify;
-	}
 }
 
 #contact {
