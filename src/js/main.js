@@ -76,26 +76,22 @@ function AppViewModel () {
 			secItem(
 				'aboutme',
 				'About Me',
-				'About Me',
-				'fa fa-user fa-2x'
+				'About Me'
 			),
 			secItem(
 				'work',
 				'Work',
-				"I've worked with",
-				'fa fa-code fa-2x'
+				"I've worked with"
 			),
 			secItem(
 				'projects',
 				'Projects',
-				'My recent projects',
-				'fa fa-archive fa-2x'
+				'My recent projects'
 			),
 			secItem(
 				'contact',
 				'Contact',
-				'Contact with me',
-				'fa fa-comments fa-2x'
+				'Contact with me'
 			)
 		]);
 	};

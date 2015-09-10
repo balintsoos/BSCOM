@@ -3,8 +3,8 @@
 
 $home-bg: #3498DB;
 $header-bg: #2980B9;
-$pair-card-bg: #2B3E51;
-$odd-card-bg: #EEEEEE;
+$card-bg: #2B3E51;
+$card-pair-bg: #EEEEEE;
 $font-color-main: #fff;
 $font-color-invert: #444;
 
@@ -56,7 +56,7 @@ $font-color-invert: #444;
 
 html, body {
 	height: 100%;
-	background-color: $pair-card-bg;
+	background-color: $card-bg;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
@@ -104,7 +104,6 @@ header {
 	@include justify-content(space-around);
 	@include align-items(center);
 	@include transition();
-	//background-color: $home-bg;
 	z-index: 999;
 
 	&.sticky, &:hover {
@@ -114,12 +113,13 @@ header {
 
 	div {
 		height: 100%;
+		padding: 20px;
 		@include flexbox();
 		@include align-items(center);
-		padding: 20px;
 		@include transform(skewX(-25deg));
-		cursor: pointer;
 		@include transition();
+		cursor: pointer;
+		
 		&:hover, &:active {
 			background-color: #2472a4;
 			text-shadow: 0px 5px 14px rgba(0,0,0,0.6);
@@ -147,6 +147,7 @@ header {
 			@include transition();
 			border-top: 3px solid transparent;
 			cursor: pointer;
+			
 			&:hover, &.active {
 				background-color: #2472a4;
 				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
@@ -180,13 +181,17 @@ header {
 	@include justify-content(center);
 	@include align-items(center);
 	@include flex-direction(column);
-	background-color: $pair-card-bg;
 	overflow: hidden;
+}
 
-	&:nth-of-type(odd) {
-		color: $font-color-invert;
-		background-color: $odd-card-bg;
-	}
+.card-odd {
+	color: $font-color-main;
+	background-color: $card-bg;
+}
+
+.card-pair {
+	color: $font-color-invert;
+	background-color: $card-pair-bg;
 }
 
 .card-header {
@@ -225,23 +230,20 @@ header {
 
 #home {
 	background-color: $home-bg;
-	background-image: url("../img/yosemite-bg.png");
+	background-image: url("../img/shuttle.png");
 	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	background-attachment: fixed;
+	background-position: center bottom;
+	background-size: 35%;
+	//background-attachment: fixed;
 	font-weight: 100;
 
 	h1 {
 		display: none;
-		color: #fff;
 		font-size: 5rem;
 		font-weight: 100;
 		text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
 	}
-
 	span {
-		color: #fff;
 		font-size: 3.8rem;
 		text-align: center;
 		line-height: 120%;
@@ -289,7 +291,7 @@ footer {
 	@include flexbox();
 	@include justify-content(center);
 	@include align-items(center);
-	background-color: $pair-card-bg;
+	background-color: $card-bg;
 	font-size: 1.2rem;
 }
 
@@ -323,6 +325,9 @@ footer {
 	.card-content div.text {
 		width: 100%;
 		font-size: 1.4rem;
+	}
+	#home {
+		background-size: 70%;
 	}
 	#home h1 {
 		display: inline;
