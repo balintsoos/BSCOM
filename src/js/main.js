@@ -25,7 +25,7 @@ function AppViewModel () {
 	});
 
 	var wpSticky = new Waypoint({
-		element: document.getElementById('home'),
+		element: document.getElementById('aboutme'),
 		handler: function () {
 			if(self.isSticky()) {
 				self.isSticky(false);
