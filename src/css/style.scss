@@ -259,15 +259,16 @@ a {
 
 #home {
 	background-color: $home-bg;
-	background-image: url("../img/shuttle.png");
+	background-image: url("../img/desk.jpg");
 	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-size: auto 30%;
+	background-position: center center;
+	background-size: contain;
 	//background-attachment: fixed;
 	font-weight: 100;
 
 	span {
-		font-size: 3.8rem;
+		text-transform: uppercase;
+		font-size: 4rem;
 		text-align: center;
 		line-height: 120%;
 	}
@@ -345,9 +346,6 @@ footer {
 	.card-content div.text {
 		width: 100%;
 		font-size: 1.4rem;
-	}
-	#home {
-		background-size: auto 40%;
 	}
 	#home span {
 		width: 80%;
