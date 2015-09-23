@@ -185,13 +185,12 @@ a {
 	height: 60px;
 
 	.button-nav-toggle {
-		padding: 10px;
+		padding: 15px;
 		cursor: pointer;
 	}
 
 	.logo {
-		h1 {
-			padding-left: 10px; 
+		h1 { 
 			font-size: 2.5rem;
 		}
 	}
@@ -212,22 +211,24 @@ a {
 	.menu-item {
 		position: relative;
 		height: 40px;
-		padding: 10px;
-		cursor: pointer;
+		@include flexbox();
+		@include align-items(center);
 		@include transition();
+		cursor: pointer;
 		
 		&:hover, &.active {
 			background-color: #2472a4;
-			text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
 		}
 		&.active {
 			border-left: 3px solid $font-color-main;
 		}
+		i {
+			padding: 15px;
+		}
 		span {
-			@include transform(skewX(25deg));
+			padding-left: 15px;
 			font-size: 1.5rem;
 			text-transform: uppercase;
-			text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
 		}
 	}
 }

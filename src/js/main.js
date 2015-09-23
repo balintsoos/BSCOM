@@ -2,12 +2,13 @@
 function AppViewModel () {
 	var self = this;
 
-	$(".nav-mobile").hide();
-
 	self.headerTitle = ko.observable("Balint Soos");
 	self.isSticky = ko.observable(false);
 	self.sections = ko.observableArray();
 	self.selectedItem = ko.observable({});
+
+	$(".nav-mobile").hide();
+	var showNav = false;
 
 	self.selectItem = function (item) {
 		self.selectedItem(item);
@@ -17,6 +18,7 @@ function AppViewModel () {
 
 	self.goHome = function () {
 		location.href = "#home";
+		//
 	};
 
 	var wpHome = new Waypoint({
@@ -73,11 +75,28 @@ function AppViewModel () {
 			}
 		});
 	};
-
+	
 	self.toggleNav = function () {
-			$(".nav-mobile").slideToggle(300, "swing", function() {
-				// Animation end
-			});
+		self.iconate();
+		$(".nav-mobile").slideToggle(300, "swing", function() {
+			showNav = !showNav;
+		});
+	}
+	var iconElement = document.getElementById('iconate');
+	self.iconate = function () {
+		var options = {
+			from: '',
+			to: '',
+			animation: 'tada',
+		}
+		if(showNav) {
+			options.from = 'fa-times';
+			options.to = 'fa-bars';
+		} else {
+			options.to = 'fa-times';
+			options.from = 'fa-bars';
+		}
+		iconate(iconElement, options);
 	}
 
 	self.init = function () {
@@ -85,22 +104,26 @@ function AppViewModel () {
 			secItem(
 				'aboutme',
 				'About Me',
-				'About Me'
+				'About Me',
+				'fa-user'
 			),
 			secItem(
 				'work',
 				'Work',
-				"I've worked with"
+				"I've worked with",
+				'fa-code'
 			),
 			secItem(
 				'projects',
 				'Projects',
-				'My recent projects'
+				'My recent projects',
+				'fa-archive'
 			),
 			secItem(
 				'contact',
 				'Contact',
-				'Contact with me'
+				'Contact with me',
+				'fa-comments'
 			)
 		]);
 	};
