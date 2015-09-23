@@ -6,10 +6,12 @@ function AppViewModel () {
 	self.isSticky = ko.observable(false);
 	self.sections = ko.observableArray();
 	self.selectedItem = ko.observable({});
+	self.showNav = ko.observable(false);
 
 	self.selectItem = function (item) {
 		location.href = "#" + item.id;
 		self.selectedItem(item);
+		self.showNav(false);
 	};
 
 	self.goHome = function () {
@@ -70,6 +72,18 @@ function AppViewModel () {
 			}
 		});
 	};
+
+	self.toggleNav = function () {
+		if (self.showNav()) {
+			$(".nav-mobile").slideUp( "slow", function() {
+				self.showNav(false);
+			});
+		} else {
+			$(".nav-mobile").slideDown( "slow", function() {
+				self.showNav(true);
+			});
+		}
+	}
 
 	self.init = function () {
 		self.sections([

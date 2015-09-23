@@ -65,21 +65,21 @@
 	</script>
 </head>
 <body class="no-select">
-	<header class="header-mobile">
-		<div class="button-nav-toggle"><i class="fa fa-bars fa-lg"></i></div>
-		<div class="logo" data-bind="click: $root.goHome">
-			<h1 data-bind="text: headerTitle"></h1>
-		</div>
-		<nav class="nav-mobile" data-bind="foreach: $root.sections">
-			<div data-bind="click: $root.selectItem, css: {active: isSelected}">
-				<span data-bind='text: title'></span>
-			</div>
-		</nav>
-	</header>
 	<section id="home" class="card card-odd">
 		<span>apps don't code themselves</span>
 	</section>
 	<section id="aboutme" class="card card-odd shadow">
+		<header class="header-mobile" data-bind="css: {sticky: isSticky}">
+			<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i class="fa fa-bars fa-lg"></i></div>
+			<div class="logo" data-bind="click: $root.goHome">
+				<h1 data-bind="text: headerTitle"></h1>
+			</div>
+		</header>
+		<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
+			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
+				<span data-bind='text: title'></span>
+			</div>
+		</nav>
 		<header class="header-desktop" data-bind="css: {sticky: isSticky}">
 			<div class="logo" data-bind="click: $root.goHome">
 				<h1 data-bind="text: headerTitle"></h1>
@@ -180,7 +180,8 @@
 		<span>Made with <i class="fa fa-heart-o"></i> by Balint Soos</span>
 	</footer>
 	<!-- Scripts -->
-	<script type='text/javascript' src='build/js/knockout-3.3.0.min.js' defer></script>
+	<script type='text/javascript' src="build/js/knockout-3.3.0.min.js" defer></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js" defer></script>
 	<script type="text/javascript" src="build/js/noframework.waypoints.min.js" defer></script>
 	<script type="text/javascript" src="build/js/app.js" defer></script>
 	<script type="application/ld+json">
