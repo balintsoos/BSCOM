@@ -97,11 +97,20 @@ a {
 }
 
 .header-desktop, .header-mobile {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	@include flexbox();
 	@include align-items(center);
 	@include transition();
 	z-index: 999;
+	background-color: $header-bg;
+	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+
+	&.sticky {
+		position: fixed;
+	}
 
 	.logo {
 		height: 100%;
@@ -118,17 +127,8 @@ a {
 }
 
 .header-desktop {
-	position: absolute;
-	top: 0;
-	left: 0;
 	height: 80px;
-	background-color: $header-bg;
-	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
 	@include justify-content(space-around);
-
-	&.sticky {
-		position: fixed;
-	}
 
 	.logo {
 		padding: 20px;
@@ -181,25 +181,54 @@ a {
 }
 
 .header-mobile {
-	position: fixed;
 	display: none;
 	height: 60px;
-	background-color: $header-bg;
-	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
 
 	.button-nav-toggle {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding: 10px;
+		cursor: pointer;
 	}
 
 	.logo {
 		h1 {
+			padding-left: 10px; 
 			font-size: 2.5rem;
 		}
 	}
+}
 
-	.nav-mobile {
-		display: none;
+.nav-mobile {
+	position: absolute;
+	top: 60px;
+	width: 100%;
+	background-color: $header-bg;
+	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+	z-index: 998;
+	
+	&.sticky {
+		position: fixed;
+	}
+
+	.menu-item {
+		position: relative;
+		height: 40px;
+		padding: 10px;
+		cursor: pointer;
+		@include transition();
+		
+		&:hover, &.active {
+			background-color: #2472a4;
+			text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+		}
+		&.active {
+			border-left: 3px solid $font-color-main;
+		}
+		span {
+			@include transform(skewX(25deg));
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+		}
 	}
 }
 

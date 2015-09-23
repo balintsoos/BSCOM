@@ -49,12 +49,11 @@
 	<meta property="og:image:width" content="663" />
 	<meta property="og:image:height" content="694" />
 	<!-- Links -->
-	<link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Roboto:400,100' />
-	<link rel="stylesheet" type="text/css" href="bower_components/iconate/dist/iconate.min.css" />
+	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:400,100'>
 	<link rel="stylesheet" type="text/css" href="build/css/style.min.css" />
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-	<link rel="shortcut icon" type="image/x-icon" href="build/img/favicon.ico" />
-	<link rel="icon" type="image/x-icon" href="build/img/favicon.ico" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="build/img/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="build/img/favicon.ico" type="image/x-icon" />
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -67,64 +66,7 @@
 </head>
 <body class="no-select">
 	<section id="home" class="card card-odd">
-		<span>apps don't code themselves</span>
-	</section>
-	<section id="aboutme" class="card card-odd shadow">
-		<header class="header-mobile" data-bind="css: {sticky: isSticky}">
-			<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i class="fa fa-bars fa-lg"></i></div>
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
-			</div>
-		</header>
-		<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
-			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-				<span data-bind='text: title'></span>
-			</div>
-		</nav>
-		<header class="header-desktop" data-bind="css: {sticky: isSticky}">
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
-			</div>
-			<nav class="nav-desktop" data-bind="foreach: $root.sections">
-				<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-					<span data-bind='text: title'></span>
-				</div>
-			</nav>
-		</header>
-		<div class="card-header">
-			<i class="fa fa-user fa-2x"></i>
-			<h2>...BUT I DO</h2>
-		</div>
-		<div class="card-content">
-			<div id="face"></div>
-			<div class="text">
-				<p>Hi, I am a 20 years old JavaScript fanboy and university student from Hungary with a passion for making applications and design for the web. I love beautiful and meaningful content and no matter what I do, I always care about all the little details that makes something unique and memorable.</p> 
-				<p>In high school I started to have interest in programming,  robotics and space reasearch. As a member of the HungaroBots robotics team we won Google Moonbots out of 147 teams from around the world. In 2014 I started my BSc studies at the Eotvos Lorand University (<a class="sublink" href="http://www.elte.hu/en" target="_blank">ELTE</a>) in the Faculty of Informatics as a Computer Scientist and Software Developer.</p>
-				<p>If you have any further questions about me, my works or if you just want to hang out, please contact me.</p>
-			</div>
-		</div>
-	</section>
-	<section id="work" class="card card-pair shadow">
-		<div class="card-header">
-			<i class="fa fa-code fa-2x"></i>
-			<h2>I'VE WORKED WITH</h2>
-		</div>
-		<div class="card-content">
-			<div class="text">
-				<p>Sorry, this section is under construction but feel free to check out <a class="sublink" href="http://linkedin.com/in/balintsoos" target="_blank">my LinkedIn profile</a></p>
-			</div>
-		</div>
-	</section>
-	<section id="projects" class="card card-odd shadow">
-		<div class="card-header">
-			<i class="fa fa-archive fa-2x"></i>
-			<h2>MY RECENT PROJECTS</h2>
-		</div>
-		<div class="card-content">
-			<div class="text">
-				<p>Sorry, this section is under construction but feel free to <a class="sublink" href='#contact'>contact</a> with me and ask any questions you may have :)</p>
-			</div>
-		</div>
+		<span>An error occurred</span>
 	</section>
 	<section id="contact" class="card card-pair shadow">
 		<div class="card-header">
@@ -181,10 +123,8 @@
 		<span>Made with <i class="fa fa-heart-o"></i> by Balint Soos</span>
 	</footer>
 	<!-- Scripts -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js" defer></script>
-	<script type='text/javascript' src="bower_components/knockout/dist/knockout.js" defer></script>
-	<script type="text/javascript" src="bower_components/waypoints/lib/noframework.waypoints.min.js" defer></script>
-	<script type="text/javascript" src="bower_components/iconate/dist/iconate.min.js" defer></script>
+	<script type='text/javascript' src='build/js/knockout-3.3.0.min.js' defer></script>
+	<script type="text/javascript" src="build/js/noframework.waypoints.min.js" defer></script>
 	<script type="text/javascript" src="build/js/app.js" defer></script>
 	<script type="application/ld+json">
 	{
