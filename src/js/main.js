@@ -2,16 +2,17 @@
 function AppViewModel () {
 	var self = this;
 
+	$(".nav-mobile").hide();
+
 	self.headerTitle = ko.observable("Balint Soos");
 	self.isSticky = ko.observable(false);
 	self.sections = ko.observableArray();
 	self.selectedItem = ko.observable({});
-	self.showNav = ko.observable(false);
 
 	self.selectItem = function (item) {
-		location.href = "#" + item.id;
 		self.selectedItem(item);
-		self.showNav(false);
+		location.href = "#" + item.id;
+		setTimeout(self.toggleNav, 400);
 	};
 
 	self.goHome = function () {
@@ -74,15 +75,9 @@ function AppViewModel () {
 	};
 
 	self.toggleNav = function () {
-		if (self.showNav()) {
-			$(".nav-mobile").slideUp( "slow", function() {
-				self.showNav(false);
+			$(".nav-mobile").slideToggle(300, "swing", function() {
+				// Animation end
 			});
-		} else {
-			$(".nav-mobile").slideDown( "slow", function() {
-				self.showNav(true);
-			});
-		}
 	}
 
 	self.init = function () {

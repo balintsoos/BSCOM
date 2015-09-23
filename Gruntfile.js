@@ -34,12 +34,6 @@ module.exports = function(grunt) {
 						src: ['img/**'],
 						dest: 'build/',
 					},
-					{
-						expand: true,
-						cwd: 'src/js/',
-						src: ['*.min.js'],
-						dest: 'build/js/',
-					},
 				],
 			},
 		},
