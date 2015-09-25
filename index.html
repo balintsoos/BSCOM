@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="bs">
 <head>
 	<!-- A long time ago in a server far, far away...
 
@@ -69,28 +69,35 @@
 	<section id="home" class="card card-odd">
 		<span>apps don't code themselves</span>
 	</section>
+	
+
 	<section id="aboutme" class="card card-odd shadow">
-		<header class="header-mobile" data-bind="css: {sticky: isSticky}">
-			<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
+		<header class="header-mobile" ng-controller="headerController as header" ng-class="{sticky: isSticky}">
+			<div class="button-nav-toggle"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
+			<div class="logo">
+				<h1>{{isSticky}}</h1>
 			</div>
 		</header>
-		<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
-			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-				<span data-bind='text: title'></span>
+		<nav class="nav-mobile" ng-controller="navItemsController as nav">
+			<div class="menu-item" ng-repeat="item in nav.items" ng-class="{active: item.isSelected()}">
+				<span>{{item.title}}</span>
 			</div>
 		</nav>
-		<header class="header-desktop" data-bind="css: {sticky: isSticky}">
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
+		
+
+		<header class="header-desktop" ng-controller="headerController as header" ng-class="{sticky: isSticky}">
+			<div class="logo">
+				<h1>{{isSticky}}</h1>
 			</div>
-			<nav class="nav-desktop" data-bind="foreach: $root.sections">
-				<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-					<span data-bind='text: title'></span>
+			<nav class="nav-desktop" ng-controller="navItemsController as nav">
+				<div class="menu-item" ng-repeat="item in nav.items">
+					<span>{{item.title}}</span>
 				</div>
 			</nav>
 		</header>
+		
+
+
 		<div class="card-header">
 			<i class="fa fa-user fa-2x"></i>
 			<h2>...BUT I DO</h2>
@@ -182,7 +189,7 @@
 	</footer>
 	<!-- Scripts -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js" defer></script>
-	<script type='text/javascript' src="bower_components/knockout/dist/knockout.js" defer></script>
+	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js" defer></script>
 	<script type="text/javascript" src="bower_components/waypoints/lib/noframework.waypoints.min.js" defer></script>
 	<script type="text/javascript" src="bower_components/iconate/dist/iconate.min.js" defer></script>
 	<script type="text/javascript" src="build/js/app.js" defer></script>
