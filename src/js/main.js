@@ -10,36 +10,75 @@ function AppViewModel () {
 	$(".nav-mobile").hide();
 	var showNav = false;
 
-	self.selectItem = function (item) {
-		self.selectedItem(item);
-		location.href = "#" + item.id;
-		setTimeout(self.toggleNav, 400);
+	var waypoints = {
+		wpHome: new Waypoint({
+			element: document.getElementById('home'),
+			handler: function () {
+				self.selectedItem({});
+			},
+			offset: '-50%',
+		}),
+		wpSticky: new Waypoint({
+			element: document.getElementById('aboutme'),
+			handler: function () {
+				if(self.isSticky()) {
+					self.isSticky(false);
+				} else {
+					self.isSticky(true);
+				}
+			},
+			offset: -1,
+		}),
 	};
 
 	self.goHome = function () {
 		location.href = "#home";
-		//
+		if(showNav) {
+			setTimeout(self.toggleNav, 400);
+		}
 	};
 
-	var wpHome = new Waypoint({
-		element: document.getElementById('home'),
-		handler: function () {
-			self.selectedItem({});
-		},
-		offset: '-50%',
-	});
+	self.selectItemAtMobile = function (item) {
+		self.selectItem(item);
+		setTimeout(self.toggleNav, 400);
+	};
 
-	var wpSticky = new Waypoint({
-		element: document.getElementById('aboutme'),
-		handler: function () {
-			if(self.isSticky()) {
-				self.isSticky(false);
-			} else {
-				self.isSticky(true);
+	self.selectItem = function (item) {
+		self.selectedItem(item);
+		location.href = "#" + item.id;
+	};
+
+	self.setSelectedItem = function(id) {
+		self.sections().forEach(function (section) {
+			if (section.id === id) {
+				self.selectedItem(section);
 			}
-		},
-		offset: -1,
-	});
+		});
+	};
+	
+	self.toggleNav = function () {
+		self.iconate();
+		$(".nav-mobile").slideToggle(300, "swing", function() {
+			showNav = !showNav;
+		});
+	}
+
+	var iconElement = document.getElementById('iconate');
+	self.iconate = function () {
+		var options = {
+			from: '',
+			to: '',
+			animation: 'verticalFlip',
+		}
+		if(showNav) {
+			options.from = 'fa-times';
+			options.to = 'fa-bars';
+		} else {
+			options.to = 'fa-times';
+			options.from = 'fa-bars';
+		}
+		iconate(iconElement, options);
+	}
 
 	var secItem  = function (id, title, header, icon, content) {
 		var obj 				= {};
@@ -67,37 +106,6 @@ function AppViewModel () {
 		});
 		return obj;
 	};
-
-	self.setSelectedItem = function (id) {
-		self.sections().forEach(function (section) {
-			if (section.id === id) {
-				self.selectedItem(section);
-			}
-		});
-	};
-	
-	self.toggleNav = function () {
-		self.iconate();
-		$(".nav-mobile").slideToggle(300, "swing", function() {
-			showNav = !showNav;
-		});
-	}
-	var iconElement = document.getElementById('iconate');
-	self.iconate = function () {
-		var options = {
-			from: '',
-			to: '',
-			animation: 'tada',
-		}
-		if(showNav) {
-			options.from = 'fa-times';
-			options.to = 'fa-bars';
-		} else {
-			options.to = 'fa-times';
-			options.from = 'fa-bars';
-		}
-		iconate(iconElement, options);
-	}
 
 	self.init = function () {
 		self.sections([
