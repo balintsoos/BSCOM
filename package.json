@@ -21,8 +21,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^11.2.0",
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.6",
     "iconate": "^0.2.5",
     "knockout": "^3.3.0",
     "waypoints": "^4.0.0"
