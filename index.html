@@ -66,22 +66,22 @@
 	</script>
 </head>
 <body class="no-select">
-	<header class="header-mobile" data-bind="css: {sticky: isSticky}">
+	<header class="header header-mobile" data-bind="css: {sticky: isSticky}">
 		<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
 		<div class="logo" data-bind="click: $root.goHome">
 			<h1 data-bind="text: headerTitle"></h1>
 		</div>
 	</header>
-	<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
+	<nav class="nav nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
 		<div class="menu-item" data-bind="click: $root.selectItemAtMobile, css: {active: isSelected}">
 			<span data-bind='text: title'></span>
 		</div>
 	</nav>
-	<header class="header-desktop" data-bind="css: {sticky: isSticky}">
+	<header class="header header-desktop" data-bind="css: {sticky: isSticky}">
 		<div class="logo" data-bind="click: $root.goHome">
 			<h1 data-bind="text: headerTitle"></h1>
 		</div>
-		<nav class="nav-desktop" data-bind="foreach: $root.sections">
+		<nav class="nav nav-desktop" data-bind="foreach: $root.sections">
 			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
 				<span data-bind='text: title'></span>
 			</div>
@@ -179,7 +179,7 @@
 		</div>	
 	</section>
 	<footer class="shadow">
-		<span>Made with <i class="fa fa-heart"></i> by Balint Soos</span>
+		<span>Made with <a href="https://github.com/balintsoos/BSCOM" target="_blank"><i class="fa fa-heart"></i></a> by Balint Soos</span>
 	</footer>
 	<!-- Scripts -->
 	<script type="text/javascript" src="node_modules/waypoints/lib/noframework.waypoints.min.js" defer></script>

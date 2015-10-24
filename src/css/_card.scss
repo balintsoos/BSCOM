@@ -1,0 +1,57 @@
+.card {
+  position: relative;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-odd {
+  color: $font-color-main;
+  background-color: $card-odd-bg;
+}
+
+.card-pair {
+  color: $font-color-invert;
+  background-color: $card-pair-bg;
+}
+
+.card-header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 100;
+
+  h2 {
+    font-size: 3rem;
+    margin-top: 10px; 
+  }
+}
+
+.card-content {
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  div.text {
+    width: 40%;
+    p {
+      padding-bottom: 15px;
+    }
+  }
+}

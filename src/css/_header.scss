@@ -1,0 +1,29 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @include transition();
+  z-index: 999;
+  background-color: $header-bg;
+  box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+
+  .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
+
+    h1 {
+      font-weight: 100;
+      text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+    }
+  }
+}
+
+@import 'header-desktop';
+
+@import 'header-mobile';
