@@ -22,13 +22,6 @@ module.exports = function (App) {
       'Projects',
       'My recent projects',
       'fa-archive'
-    ),
-    new Section(
-    	App,
-      'contact',
-      'Contact',
-      'Contact with me',
-      'fa-comments'
     )
   ];
 };

@@ -1,12 +1,12 @@
-var $   = require('jquery');
-var ko  = require('knockout');
-var iconate = require('iconate');
-var init = require('./init.js');
+var $         = require('jquery');
+var ko        = require('knockout');
+var iconate   = require('iconate');
+var init      = require('./init.js');
 
 function AppViewModel () {
   var App = this;
 
-  App.headerTitle = ko.observable("balint Soos");
+  App.headerTitle = ko.observable("Balint Soos");
   App.isSticky = ko.observable(false);
   App.sections = ko.observableArray();
   App.selectedItem = ko.observable({});

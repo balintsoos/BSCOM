@@ -3,6 +3,7 @@
 @import 'reset';
 @import 'variables';
 @import 'social';
+@import 'gradient';
 
 @mixin transition () {
   transition: all 0.3s ease;
@@ -10,7 +11,7 @@
 
 html, body {
   height: 100%;
-  background-color: $card-odd-bg;
+  background-color: $default-bg;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -42,10 +43,6 @@ body {
   user-select: none;
 }
 
-.shadow {
-  box-shadow: inset 0px 32px 17px -32px rgba(0,0,0,0.75);
-}
-
 a {
   color: currentColor;
   text-decoration: none;
@@ -60,7 +57,7 @@ a {
 @import 'card';
 
 #home {
-  background-color: $home-bg;
+  @include gradient();
   font-weight: 100;
 
   span {
@@ -68,10 +65,6 @@ a {
     font-size: 4rem;
     text-align: center;
     line-height: 120%;
-  }
-
-  #desk {
-    width: 100%;
   }
 }
 
@@ -93,25 +86,36 @@ a {
   background-position: center center;
 }
 
-#contact {
-  .card-content  {
-    a {
-      @include transition();
-    }
-  }
+#work {
+  background-color: #7AC137;
 }
 
 footer {
-  position: relative;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
-  background-color: $card-odd-bg;
-  font-size: 1.2rem;
-  i {
-    color: #e74c3c;
+
+  .jobtitle {
+    padding: 20px;
+    h2 {
+      font-weight: 100;
+      font-size: 3rem;
+    }
+  }
+
+  .social {
+    a {
+      @include transition();
+      i {
+        margin: 10px;
+      }
+    } 
   }
 }
 
