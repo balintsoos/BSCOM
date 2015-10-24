@@ -1,3 +1,7 @@
+// import knockout from 'knockout';
+// import iconate from 'iconate';
+// import Waypoint from 'waypoints';
+// import init from './init'
 
 function AppViewModel () {
 	var self = this;
@@ -106,8 +110,8 @@ function AppViewModel () {
 		});
 		return obj;
 	};
-
-	self.init = function () {
+	
+	var init = function () {
 		self.sections([
 			secItem(
 				'aboutme',
@@ -135,8 +139,8 @@ function AppViewModel () {
 			)
 		]);
 	};
-	
-	self.init();
+
+	init();
 }
 
 ko.applyBindings(new AppViewModel());

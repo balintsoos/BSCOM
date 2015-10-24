@@ -1,392 +1,343 @@
-
 /* Main stylesheet */
 
-$home-bg: #3498DB;
-$header-bg: #2980B9;
-$card-bg: #2B3E51;
-$card-pair-bg: #EEEEEE;
-$font-color-main: #fff;
-$font-color-invert: #444;
-
-@mixin flexbox () {
-	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */
-	display: flex;
-}
-
-@mixin justify-content ($arg) {
-	-webkit-justify-content: $arg;
-	justify-content: $arg;
-}
-
-@mixin align-items ($arg) {
-	-webkit-align-items: $arg;
-	-webkit-box-align: $arg;
-	-ms-flex-align: $arg;
-	align-items: $arg;
-}
-
-@mixin flex-direction ($arg) {
-	-webkit-flex-direction: $arg;
-	flex-direction: $arg;
-}
-
-@mixin flex-wrap ($arg) {
-	-webkit-flex-wrap: $arg;
-	-ms-flex-wrap: $arg;
-	flex-wrap: $arg;
-}
-
-@mixin transform ($arg) {
-	-webkit-transform: $arg;
-	-moz-transform: $arg;
-	-ms-transform: $arg;
-	transform: $arg;
-}
+@import 'reset';
+@import 'variables';
+@import 'social';
 
 @mixin transition () {
-	transition: all 0.3s ease;
-}
-
-*, *::after, *::before {
-	box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 html, body {
-	height: 100%;
-	background-color: $card-bg;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
+  height: 100%;
+  background-color: $card-bg;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
-	font-size : 1.6rem;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	line-height: 150%;
-	color: $font-color-main;
+  font-size : 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  color: $font-color-main;
 }
 
 .no-select {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .shadow {
-	box-shadow: inset 0px 32px 17px -32px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 32px 17px -32px rgba(0,0,0,0.75);
 }
 
 a {
-	color: currentColor;
-	text-decoration: none;
+  color: currentColor;
+  text-decoration: none;
 
-	&.sublink {
-		text-decoration: underline;
-	}
+  &.sublink {
+    text-decoration: underline;
+  }
 }
 
 .header-desktop, .header-mobile {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	@include flexbox();
-	@include align-items(center);
-	@include transition();
-	z-index: 999;
-	background-color: $header-bg;
-	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @include transition();
+  z-index: 999;
+  background-color: $header-bg;
+  box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
 
-	&.sticky {
-		position: fixed;
-	}
+  &.sticky {
+    position: fixed;
+  }
 
-	.logo {
-		height: 100%;
-		@include flexbox();
-		@include align-items(center);
-		@include transition();
-		cursor: pointer;
+  .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
 
-		h1 {
-			font-weight: 100;
-			text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
-		}
-	}
+    h1 {
+      font-weight: 100;
+      text-shadow: 0px 1px 5px rgba(0,0,0,0.4);
+    }
+  }
 }
 
 .header-desktop {
-	height: 80px;
-	@include justify-content(space-around);
+  height: 80px;
+  justify-content: space-between;
 
-	.logo {
-		padding: 20px;
-		@include transform(skewX(-25deg));
-		
-		&:hover, &:active {
-			background-color: #2472a4;
-			text-shadow: 0px 5px 14px rgba(0,0,0,0.6);
-		}
+  .logo {
+    padding: 20px;
+    transform: skewX(-25deg);
+    
+    &:hover, &:active {
+      background-color: #2472a4;
+      text-shadow: 0px 5px 14px rgba(0,0,0,0.6);
+    }
 
-		h1 {
-			font-size: 4rem;
-			@include transform(skewX(25deg));
-		}
-	}
+    h1 {
+      font-size: 4rem;
+      transform: skewX(25deg);
+    }
+  }
 
-	.nav-desktop {
-		height: 100%;
-		@include flexbox();
-		@include align-items(center);
+  .nav-desktop {
+    height: 100%;
+    display: flex;
+    align-items: center;
 
-		.menu-item {
-			height: 100%;
-			padding: 15px;
-			@include flexbox();
-			@include align-items(center);
-			@include transform(skewX(-25deg));
-			@include transition();
-			border-top: 3px solid transparent;
-			cursor: pointer;
-			
-			&:hover, &.active {
-				background-color: #2472a4;
-				text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-			}
-			&:hover {
-				border-top: 3px solid transparent;
-			}
-			&.active {
-				border-top: 3px solid #fff;
-			}
-			span {
-				@include transform(skewX(25deg));
-				font-size: 1.8rem;
-				text-transform: uppercase;
-				text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
-			}
-		}
-	}
+    .menu-item {
+      height: 100%;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      transform: skewX(-25deg);
+      @include transition();
+      border-top: 3px solid transparent;
+      cursor: pointer;
+      
+      &:hover, &.active {
+        background-color: #2472a4;
+        text-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+      }
+      &:hover {
+        border-top: 3px solid transparent;
+      }
+      &.active {
+        border-top: 3px solid #fff;
+      }
+      span {
+        transform: skewX(25deg);
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+      }
+    }
+  }
 }
 
 .header-mobile {
-	display: none;
-	height: 60px;
+  display: none;
+  height: 60px;
 
-	.button-nav-toggle {
-		padding: 15px;
-		cursor: pointer;
-	}
+  .button-nav-toggle {
+    padding: 15px;
+    cursor: pointer;
+  }
 
-	.logo {
-		h1 { 
-			font-size: 2.5rem;
-		}
-	}
+  .logo {
+    h1 { 
+      font-size: 2.5rem;
+    }
+  }
 }
 
 .nav-mobile {
-	position: absolute;
-	top: 60px;
-	width: 100%;
-	background-color: $header-bg;
-	box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
-	z-index: 998;
-	
-	&.sticky {
-		position: fixed;
-	}
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background-color: $header-bg;
+  box-shadow: 0px -20px 10px 20px rgba(0,0,0,0.75);
+  z-index: 998;
+  
+  &.sticky {
+    position: fixed;
+  }
 
-	.menu-item {
-		position: relative;
-		height: 40px;
-		@include flexbox();
-		@include align-items(center);
-		@include transition();
-		cursor: pointer;
-		
-		&:hover, &.active {
-			background-color: #2472a4;
-		}
-		&.active {
-			border-left: 3px solid $font-color-main;
-		}
-		i {
-			padding: 15px;
-		}
-		span {
-			padding-left: 15px;
-			font-size: 1.5rem;
-			text-transform: uppercase;
-		}
-	}
+  .menu-item {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
+    
+    &:hover, &.active {
+      background-color: #2472a4;
+    }
+    &.active {
+      border-left: 3px solid $font-color-main;
+    }
+    i {
+      padding: 15px;
+    }
+    span {
+      padding-left: 15px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .card {
-	position: relative;
-	top: 0;
-	width: 100%;
-	min-height: 100%;
-	padding-top: 80px;
-	padding-bottom: 80px;
-	@include flexbox();
-	@include justify-content(center);
-	@include align-items(center);
-	@include flex-direction(column);
-	overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .card-odd {
-	color: $font-color-main;
-	background-color: $card-bg;
+  color: $font-color-main;
+  background-color: $card-bg;
 }
 
 .card-pair {
-	color: $font-color-invert;
-	background-color: $card-pair-bg;
+  color: $font-color-invert;
+  background-color: $card-pair-bg;
 }
 
 .card-header {
-	position: relative;
-	top: 0;
-	width: 100%;
-	margin-bottom: 40px;
-	text-align: center;
-	font-weight: 100;
+  position: relative;
+  top: 0;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 100;
 
-	h2 {
-		font-size: 3rem;
-		margin-top: 10px; 
-	}
+  h2 {
+    font-size: 3rem;
+    margin-top: 10px; 
+  }
 }
 
 .card-content {
-	position: relative;
-	top: 0;
-	width: 100%;
-	text-align: center;
-	@include flexbox();
-	@include justify-content(center);
-	@include align-items(center);
-	@include flex-direction(row);
-	@include flex-wrap(wrap);
-	overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
 
-	div.text {
-		width: 40%;
-		p {
-			padding-bottom: 15px;
-		}
-	}
+  div.text {
+    width: 40%;
+    p {
+      padding-bottom: 15px;
+    }
+  }
 }
 
 #home {
-	background-color: $home-bg;
-	background-image: url("../img/desk.jpg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	//background-attachment: fixed;
-	font-weight: 100;
+  background-color: $home-bg;
+  background-image: url("../img/desk.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  //background-attachment: fixed;
+  font-weight: 100;
 
-	span {
-		text-transform: uppercase;
-		font-size: 4rem;
-		text-align: center;
-		line-height: 120%;
-	}
+  span {
+    text-transform: uppercase;
+    font-size: 4rem;
+    text-align: center;
+    line-height: 120%;
+  }
 }
 
 #aboutme {
-	.card-content div.text {
-		text-align: justify;
-	}
+  .card-content div.text {
+    text-align: justify;
+  }
 }
 
 #face {
-	width: 300px;
-	height: 300px;
-	margin: 30px;
-	border-radius: 50%;
-	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-	background-image: url("../img/face.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  border-radius: 50%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  background-image: url("../img/face.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #contact {
-	.card-content  {
-		a {
-			@include transition();
-		}
-	}
+  .card-content  {
+    a {
+      @include transition();
+    }
+  }
 }
 
-#fb:hover {color: #3b5998; /* Facebook blue */}
-#tw:hover {color: #55acee; /* Twitter blue */}
-#in:hover {color: #007bb6; /* LinkedIn blue */}
-#gh:hover {color: #202229; /* GitHub black */}
-#ig:hover {color: #517fa4; /* Instagram blue */}
-#gp:hover {color: #d34836; /* Google+ red */}
-#em:hover {color: #FF6D3F; /* Email */}
-
 footer {
-	position: relative;
-	width: 100%;
-	height: 80px;
-	@include flexbox();
-	@include justify-content(center);
-	@include align-items(center);
-	background-color: $card-bg;
-	font-size: 1.2rem;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $card-bg;
+  font-size: 1.2rem;
 }
 
 /*--------------------------------------------- Media Queries -----------------------------------------------*/
 
 @media only screen and (max-width: 1300px) {
-	#home span {
-		width: 45%;
-	}
-	#card-content div.text {
-		width: 60%;
-	}
+  #home span {
+    width: 45%;
+  }
+  #card-content div.text {
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-	.header-desktop {
-		display: none;
-	}
-	.header-mobile {
-		@include flexbox();
-	}
-	.card-header h2 {
-		font-size: 1.8rem;
-	}
-	.card-content {
-		width: 85%;
-	}
-	.card-content div.text {
-		width: 100%;
-		font-size: 1.4rem;
-	}
-	#home span {
-		width: 80%;
-		font-size: 2.4rem;
-	}
-	#face {
-		margin: 0;
-		margin-bottom: 20px
-	}
+  .header-desktop {
+    display: none;
+  }
+  .header-mobile {
+    display: flex;
+  }
+  .card-header h2 {
+    font-size: 1.8rem;
+  }
+  .card-content {
+    width: 85%;
+  }
+  .card-content div.text {
+    width: 100%;
+    font-size: 1.4rem;
+  }
+  #home span {
+    width: 80%;
+    font-size: 2.4rem;
+  }
+  #face {
+    margin: 0;
+    margin-bottom: 20px
+  }
 }

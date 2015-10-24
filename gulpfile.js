@@ -6,6 +6,7 @@ var gutil         = require('gulp-util');
 var sass          = require('gulp-sass');
 var postcss       = require('gulp-postcss');
 var autoprefixer  = require('autoprefixer');
+var cssnano       = require('cssnano');
 
 // JS build
 gulp.task('build:JS', function () {
@@ -22,13 +23,15 @@ gulp.task('build:JS', function () {
 // Sass and CSS build
 gulp.task('build:CSS', function () {
   var processors = [
-    autoprefixer({browsers: ['last 2 versions']})
+    autoprefixer({browsers: ['last 2 versions']}),
+    cssnano()
   ];
 
   gulp.src('./src/css/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
+    .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./build/css'));
     
@@ -36,15 +39,18 @@ gulp.task('build:CSS', function () {
 });
 
 // Watchers
-gulp.task('watch', function () {
+gulp.task('watch', ['build:JS', 'build:CSS'], function () {
+  // watch JS
   gulp.watch('./src/js/**/*.js', ['build:JS'])
     .on('change', function (event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
+  
+  // watch CSS
   gulp.watch('./src/css/**/*.scss', ['build:CSS'])
     .on('change', function (event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
 
-gulp.task('default', ['build:JS', 'build:CSS', 'watch']);
+gulp.task('default', ['build:JS', 'build:CSS']);
