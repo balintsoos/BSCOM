@@ -18,10 +18,11 @@ gulp.task('clean', function () {
 // JS build
 gulp.task('build:JS', function () {
   gulp.src('./src/js/main.js')
-    .pipe(sourcemaps.init())
+    .pipe(rename('app.js'))
     .pipe(browserify({
       insertGlobals : false,
     }))
+    .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(rename('app.min.js'))
     .pipe(sourcemaps.write('.'))
@@ -41,8 +42,9 @@ gulp.task('build:CSS', function () {
   ];
 
   gulp.src('./src/css/style.scss')
-    .pipe(sourcemaps.init())
+    .pipe(rename('style.css'))
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.init())
     .pipe(postcss(processors))
     .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write('.'))
