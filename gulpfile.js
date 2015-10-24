@@ -10,8 +10,9 @@ var autoprefixer  = require('autoprefixer');
 var cssnano       = require('cssnano');
 var del           = require('del');
 
+// delete build folder
 gulp.task('clean', function () {
-  del(['./build/**/*']);
+  del.sync(['./build/**/*']);
 });
 
 // JS build
