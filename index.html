@@ -66,31 +66,32 @@
 	</script>
 </head>
 <body class="no-select">
-	<section id="home" class="card card-odd">
-		<span>apps don't code themselves</span>
-	</section>
-	<section id="aboutme" class="card card-odd shadow">
-		<header class="header-mobile" data-bind="css: {sticky: isSticky}">
-			<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
-			</div>
-		</header>
-		<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
-			<div class="menu-item" data-bind="click: $root.selectItemAtMobile, css: {active: isSelected}">
+	<header class="header-mobile" data-bind="css: {sticky: isSticky}">
+		<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
+		<div class="logo" data-bind="click: $root.goHome">
+			<h1 data-bind="text: headerTitle"></h1>
+		</div>
+	</header>
+	<nav class="nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
+		<div class="menu-item" data-bind="click: $root.selectItemAtMobile, css: {active: isSelected}">
+			<span data-bind='text: title'></span>
+		</div>
+	</nav>
+	<header class="header-desktop" data-bind="css: {sticky: isSticky}">
+		<div class="logo" data-bind="click: $root.goHome">
+			<h1 data-bind="text: headerTitle"></h1>
+		</div>
+		<nav class="nav-desktop" data-bind="foreach: $root.sections">
+			<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
 				<span data-bind='text: title'></span>
 			</div>
 		</nav>
-		<header class="header-desktop" data-bind="css: {sticky: isSticky}">
-			<div class="logo" data-bind="click: $root.goHome">
-				<h1 data-bind="text: headerTitle"></h1>
-			</div>
-			<nav class="nav-desktop" data-bind="foreach: $root.sections">
-				<div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-					<span data-bind='text: title'></span>
-				</div>
-			</nav>
-		</header>
+	</header>
+	<section id="home" class="card card-odd">
+		<span>apps don't code themselves</span>
+		<img id="desk" src="build/img/desk.png">
+	</section>
+	<section id="aboutme" class="card card-odd shadow">
 		<div class="card-header">
 			<i class="fa fa-user fa-2x"></i>
 			<h2>...BUT I DO</h2>
@@ -169,7 +170,7 @@
 					<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
 				</span>
 			</a>
-			<a id="em" href="mailto:soosbalint95+site@gmail.com" title="Email">
+			<a id="em" href="mailto:soosbalint95+bscom@gmail.com" title="Email">
 				<span class="fa-stack fa-3x">
 					<i class="fa fa-circle fa-stack-2x"></i>
 					<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -178,11 +179,10 @@
 		</div>	
 	</section>
 	<footer class="shadow">
-		<span>Made with <i class="fa fa-heart-o"></i> by Balint Soos</span>
+		<span>Made with <i class="fa fa-heart"></i> by Balint Soos</span>
 	</footer>
 	<!-- Scripts -->
 	<script type="text/javascript" src="node_modules/waypoints/lib/noframework.waypoints.min.js" defer></script>
-	<script type="text/javascript" src="node_modules/iconate/dist/iconate.min.js" defer></script>
 	<script type="text/javascript" src="build/js/app.min.js" defer></script>
 	<script type="application/ld+json">
 	{
@@ -197,7 +197,7 @@
 		"https://instagram.com/balintsoos/",
 		"https://github.com/balintsoos",
 		"https://plus.google.com/+BálintSoósdev"] 
-	}	
+	}
 	</script>
 </body>
 </html>
