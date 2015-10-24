@@ -91,7 +91,6 @@ a {
 
   .logo {
     padding: 20px;
-    transform: skewX(-25deg);
     
     &:hover, &:active {
       background-color: #2472a4;
@@ -100,7 +99,6 @@ a {
 
     h1 {
       font-size: 4rem;
-      transform: skewX(25deg);
     }
   }
 
@@ -114,7 +112,6 @@ a {
       padding: 15px;
       display: flex;
       align-items: center;
-      transform: skewX(-25deg);
       @include transition();
       border-top: 3px solid transparent;
       cursor: pointer;
@@ -130,7 +127,6 @@ a {
         border-top: 3px solid #fff;
       }
       span {
-        transform: skewX(25deg);
         font-size: 1.8rem;
         text-transform: uppercase;
         text-shadow: 0px 0px 2px rgba(0,0,0,0.3);
