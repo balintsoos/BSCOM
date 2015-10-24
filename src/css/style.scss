@@ -10,15 +10,15 @@
 
 html, body {
   height: 100%;
-  background-color: $card-bg;
+  background-color: $card-odd-bg;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 *, *:before, *:after {
@@ -26,11 +26,11 @@ html {
 }
 
 body {
+  color: $font-color-main;
   font-size : 1.6rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 150%;
-  color: $font-color-main;
 }
 
 .no-select {
@@ -204,7 +204,7 @@ a {
 
 .card-odd {
   color: $font-color-main;
-  background-color: $card-bg;
+  background-color: $card-odd-bg;
 }
 
 .card-pair {
@@ -248,11 +248,6 @@ a {
 
 #home {
   background-color: $home-bg;
-  background-image: url("../img/desk.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  //background-attachment: fixed;
   font-weight: 100;
 
   span {
@@ -260,6 +255,10 @@ a {
     font-size: 4rem;
     text-align: center;
     line-height: 120%;
+  }
+
+  #desk {
+    width: 100%;
   }
 }
 
@@ -296,8 +295,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $card-bg;
+  background-color: $card-odd-bg;
   font-size: 1.2rem;
+  i {
+    color: #e74c3c;
+  }
 }
 
 /*--------------------------------------------- Media Queries -----------------------------------------------*/
