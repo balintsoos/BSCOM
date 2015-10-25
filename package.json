@@ -11,7 +11,6 @@
       "url": "http://balintsoos.com/"
     }
   ],
-  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/balintsoos/BSCOM.git"

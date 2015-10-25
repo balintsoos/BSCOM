@@ -57,7 +57,7 @@ a {
 @import 'card';
 
 #home {
-  @include gradient();
+  @include gradient1();
   font-weight: 100;
 
   span {
@@ -69,6 +69,7 @@ a {
 }
 
 #aboutme {
+  @include gradient5();
   .card-content div.text {
     text-align: justify;
   }
@@ -87,14 +88,18 @@ a {
 }
 
 #work {
-  background-color: #7AC137;
+  @include gradient2();
+}
+
+#projects {
+  @include gradient3();
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 70px;
+  height: $frame-height;
   display: flex;
   justify-content: space-around;
   flex-direction: row;

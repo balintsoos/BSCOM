@@ -1,12 +1,13 @@
 .header-desktop {
-  height: 70px;
+  height: $frame-height;
   justify-content: space-around;
 
   .logo {
-    padding: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
     
     &:hover, &:active {
-      border-bottom: 2px solid currentColor;
+      border-bottom: 2px solid $font-color-main;
     }
 
     h1 {
@@ -21,22 +22,16 @@
   align-items: center;
 
   .menu-item {
-    height: 100%;
-    padding: 15px;
+    margin: 15px;
+    padding-bottom: 5px; 
     display: flex;
     align-items: center;
     @include transition();
-    border-top: 3px solid transparent;
+    border-bottom: 2px solid transparent;
     cursor: pointer;
     
     &:hover, &.active {
-      background-color: #2472a4;
-    }
-    &:hover {
-      border-top: 3px solid transparent;
-    }
-    &.active {
-      border-top: 3px solid #fff;
+      border-bottom: 2px solid $font-color-main;
     }
     span {
       font-size: 1.8rem;
