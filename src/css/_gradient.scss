@@ -1,4 +1,4 @@
-@mixin gradient1 () {
+.gradient1 {
   background: -webkit-linear-gradient(90deg, #FF4E50 10%, #F9D423 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #FF4E50 10%, #F9D423 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #FF4E50 10%, #F9D423 90%); /* IE10 */
@@ -6,7 +6,7 @@
   background:         linear-gradient(90deg, #FF4E50 10%, #F9D423 90%); /* W3C */
 }
 
-@mixin gradient2 () {
+.gradient2 {
   background: -webkit-linear-gradient(90deg, #fc00ff 10%, #00dbde 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #fc00ff 10%, #00dbde 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #fc00ff 10%, #00dbde 90%); /* IE10 */
@@ -14,7 +14,7 @@
   background:         linear-gradient(90deg, #fc00ff 10%, #00dbde 90%); /* W3C */
 }
 
-@mixin gradient3 () {
+.gradient3 {
   background: -webkit-linear-gradient(90deg, #7b4397 10%, #dc2430 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #7b4397 10%, #dc2430 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #7b4397 10%, #dc2430 90%); /* IE10 */
@@ -22,18 +22,15 @@
   background:         linear-gradient(90deg, #7b4397 10%, #dc2430 90%); /* W3C */
 }
 
-@mixin gradient4 () {
-  background: -webkit-linear-gradient(90deg, #fe8c00 10%, #f83600 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #fe8c00 10%, #f83600 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #fe8c00 10%, #f83600 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #fe8c00 10%, #f83600 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #fe8c00 10%, #f83600 90%); /* W3C */
-}
-
-@mixin gradient5 () {
+.gradient4 {
   background: -webkit-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* Opera 11.10+ */
   background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
 }
+
+.color0{background-color: #3498db;}
+.color1{background-color: #e74c3c;}
+.color2{background-color: #F9D423;}
+.color3{background-color: #FA8516;}

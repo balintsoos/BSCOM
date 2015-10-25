@@ -65,7 +65,7 @@
 		ga('send', 'pageview');
 	</script>
 </head>
-<body class="no-select">
+<body class="no-select" data-bind="css: currentBg">
 	<header class="header header-mobile" data-bind="css: {sticky: isSticky}">
 		<div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
 		<div class="logo" data-bind="click: $root.goHome">

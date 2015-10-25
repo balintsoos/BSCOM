@@ -11,7 +11,6 @@
 
 html, body {
   height: 100%;
-  background-color: $default-bg;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -32,6 +31,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 150%;
+  transition: background-color 1s ease;
 }
 
 .no-select {
@@ -57,7 +57,6 @@ a {
 @import 'card';
 
 #home {
-  @include gradient1();
   font-weight: 100;
 
   span {
@@ -69,7 +68,6 @@ a {
 }
 
 #aboutme {
-  @include gradient5();
   .card-content div.text {
     text-align: justify;
   }
@@ -88,11 +86,9 @@ a {
 }
 
 #work {
-  @include gradient2();
 }
 
 #projects {
-  @include gradient3();
 }
 
 footer {

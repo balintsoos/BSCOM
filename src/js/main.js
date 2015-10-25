@@ -10,6 +10,9 @@ function AppViewModel () {
   App.isSticky = ko.observable(false);
   App.sections = ko.observableArray();
   App.selectedItem = ko.observable({});
+  App.currentBg = ko.computed(function () {
+    return App.selectedItem().bg || 'color0';
+  });
 
   $(".nav-mobile").hide();
   var showNav = false;

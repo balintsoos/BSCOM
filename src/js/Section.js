@@ -1,11 +1,11 @@
-var ko  = require('knockout');
+var ko = require('knockout');
 
-module.exports = function (App, id, title, header, icon, content) {
+module.exports = function (App, id, title, header, bg, content) {
   var Section = {
     id:       id,
     title:    title,
     header:   header,
-    icon:     icon,
+    bg:       bg,
     content:  content
   };
   

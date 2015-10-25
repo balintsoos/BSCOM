@@ -7,21 +7,21 @@ module.exports = function (App) {
       'aboutme',
       'About Me',
       'About Me',
-      'fa-user'
+      'color1'
     ),
     new Section(
     	App,
       'work',
       'Work',
       "I've worked with",
-      'fa-code'
+      'color2'
     ),
     new Section(
     	App,
       'projects',
       'Projects',
       'My recent projects',
-      'fa-archive'
+      'color3'
     )
   ];
 };
