@@ -1,31 +1,30 @@
 var ko = require('knockout');
 
-module.exports = function (App, id, title, header, bg, content) {
+module.exports = function (App, obj) {
   var Section = {
-    id:       id,
-    title:    title,
-    header:   header,
-    bg:       bg,
-    content:  content
+    id:       obj.id,
+    title:    obj.title,
+    header:   obj.header,
+    bg:       obj.bg
   };
   
   Section.isSelected = ko.computed(function () {
-    return (App.selectedItem().id === id);
+    return (App.selectedItem().id === obj.id);
   });
   
   Section.waypoints = {
     wpTop: new Waypoint({
-      element: document.getElementById(id),
+      element: document.getElementById(obj.id),
       handler: function () {
-        App.setSelectedItem(id);
+        App.setSelectedItem(obj.id);
       },
       offset: '20%',
     }),
 
     wpBottom: new Waypoint({
-      element: document.getElementById(id),
+      element: document.getElementById(obj.id),
       handler: function () {
-        App.setSelectedItem(id);
+        App.setSelectedItem(obj.id);
       },
       offset: '-50%',
     })

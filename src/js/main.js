@@ -1,22 +1,25 @@
 var $         = require('jquery');
 var ko        = require('knockout');
-var iconate   = require('iconate');
 var init      = require('./init.js');
+var iconate   = require('iconate');
 
 function AppViewModel () {
   var App = this;
 
-  App.headerTitle = ko.observable("Balint Soos");
-  App.isSticky = ko.observable(false);
-  App.sections = ko.observableArray();
-  App.selectedItem = ko.observable({});
-  App.currentBg = ko.computed(function () {
-    return App.selectedItem().bg || 'color0';
+  // ========== Observables ==========
+  App.headerTitle   = ko.observable("Balint Soos");
+  App.isSticky      = ko.observable(false);
+  App.sections      = ko.observableArray();
+  App.selectedItem  = ko.observable({});
+  App.currentBg     = ko.computed(function () {
+    return App.selectedItem().bg || 'home-bg';
   });
 
+  // hide mobile menu
   $(".nav-mobile").hide();
   var showNav = false;
 
+  // create waypoints for Home section
   var waypoints = {
     wpHome: new Waypoint({
       element: document.getElementById('home'),
@@ -34,40 +37,8 @@ function AppViewModel () {
     }),
   };
 
-  App.goHome = function () {
-    location.href = "#home";
-    if(showNav) {
-      setTimeout(App.toggleNav, 400);
-    }
-  };
-
-  App.selectItemAtMobile = function (item) {
-    App.selectItem(item);
-    setTimeout(App.toggleNav, 400);
-  };
-
-  App.selectItem = function (item) {
-    App.selectedItem(item);
-    location.href = "#" + item.id;
-  };
-
-  App.setSelectedItem = function(id) {
-    App.sections().forEach(function (section) {
-      if (section.id === id) {
-        App.selectedItem(section);
-      }
-    });
-  };
-  
-  App.toggleNav = function () {
-    App.iconate();
-    $(".nav-mobile").slideToggle(300, "swing", function() {
-      showNav = !showNav;
-    });
-  }
-
   var iconElement = document.getElementById('iconate');
-  App.iconate = function () {
+  App.iconateSetup = function () {
     var options = {
       from: '',
       to: '',
@@ -82,7 +53,42 @@ function AppViewModel () {
     }
     iconate(iconElement, options);
   }
+
+  // ========== Functions ==========
+  App.goHome = function () {
+    location.href = "#home";
+    if(showNav) {
+      setTimeout(App.toggleNav, 400);
+    }
+  };
+
+  App.selectItem = function (item) {
+    App.selectedItem(item);
+    location.href = "#" + item.id;
+  };
+
+  App.selectItemAtMobile = function (item) {
+    App.selectItem(item);
+    setTimeout(App.toggleNav, 400);
+  };
+
+  App.toggleNav = function () {
+    App.iconate();
+    $(".nav-mobile").slideToggle(300, "swing", function() {
+      showNav = !showNav;
+    });
+  }
+
+  // Helper function
+  App.setSelectedItem = function(id) {
+    App.sections().forEach(function (section) {
+      if (section.id === id) {
+        App.selectedItem(section);
+      }
+    });
+  };
   
+  // Initialize sections
   App.sections(init(App));
 }
 

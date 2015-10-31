@@ -10,7 +10,7 @@ var autoprefixer  = require('autoprefixer');
 var cssnano       = require('cssnano');
 var del           = require('del');
 
-// delete build folder
+// clean build folder
 gulp.task('clean', function () {
   del.sync(['./build/**/*']);
 });

@@ -3,7 +3,7 @@ My Interactive Portfolio and Resume site
 
 [Check it out!](http://balintsoos.com)
 
-> I am buliding an "Interactive Resume" site, highly rely on frameworks and libraries such as MVC frameworks like Angular.js or Knockout.js, CSS preprocessors like SASS, taskers like Grunt, package managers like Bower, etc etc. This website is just like a playground. I always tweak it, playing with new stuff to create the best workflow for myself and learn as much as possible.
+> I am buliding an "Interactive Resume" site, highly rely on frameworks and libraries such as MVC frameworks like Angular.js or Knockout.js, CSS preprocessors like SASS, taskers like Gulp, package managers like Bower, etc. This website is just like a playground. I always tweak it, playing with new stuff to create the best workflow for myself and learn as much as possible.
 >
 
 ## Development

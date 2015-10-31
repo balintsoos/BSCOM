@@ -2,26 +2,23 @@ var Section = require('./Section.js');
 
 module.exports = function (App) {
   return [
-    new Section(
-    	App,
-      'aboutme',
-      'About Me',
-      'About Me',
-      'color1'
-    ),
-    new Section(
-    	App,
-      'work',
-      'Work',
-      "I've worked with",
-      'color2'
-    ),
-    new Section(
-    	App,
-      'projects',
-      'Projects',
-      'My recent projects',
-      'color3'
-    )
+    new Section(App, {
+      id: 'aboutme',
+      title: 'About Me',
+      header: 'About Me',
+      bg: 'aboutme-bg'
+    }),
+    new Section(App, {
+      id: 'work',
+      title: 'Work',
+      header: "I've worked with",
+      bg: 'work-bg'
+    }),
+    new Section(App, {
+      id: 'projects',
+      title: 'Projects',
+      header: 'My recent projects',
+      bg: 'projects-bg'
+    })
   ];
 };
