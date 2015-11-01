@@ -30,12 +30,14 @@
   background:         linear-gradient(90deg, #00c6ff 10%, #0072ff 90%); /* W3C */
 }
 
-.color0 {background-color: #3498db;}
+.color0 {
+  background-color: #3498db;
+}
 .color1 {background-color: #e74c3c;}
 .color2 {background-color: #F9D423;}
 .color3 {background-color: #FA8516;}
 
-.home-bg      {background-color: #2D4059;}
-.aboutme-bg   {background-color: #51AF5B;}
-.work-bg      {background-color: #B3E55E;}
-.projects-bg  {background-color: #FFCB3C;}
+.home-bg      {background: #2180A8;}
+.aboutme-bg   {background-color: #FE5559;}
+.work-bg      {background-color: #00CBBD;}
+.projects-bg  {background-color: #10657D;}

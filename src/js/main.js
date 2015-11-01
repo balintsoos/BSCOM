@@ -38,7 +38,7 @@ function AppViewModel () {
   };
 
   var iconElement = document.getElementById('iconate');
-  App.iconateSetup = function () {
+  App.iconate = function () {
     var options = {
       from: '',
       to: '',

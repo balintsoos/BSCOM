@@ -57,13 +57,16 @@ a {
 @import 'card';
 
 #home {
-  font-weight: 100;
-
   span {
+    font-weight: 100;
     text-transform: uppercase;
     font-size: 4rem;
     text-align: center;
-    line-height: 120%;
+  }
+  img {
+    width: 1500px;
+    height: 378px;
+    opacity: 0.8;
   }
 }
 
