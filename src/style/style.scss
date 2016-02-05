@@ -1,7 +1,13 @@
 /* Main stylesheet */
 
+// Font Awesome
+@import '../../node_modules/font-awesome/scss/font-awesome';
+// iconate.js
+// @import '../../node_modules/iconate/...TODO'
+
 @import 'reset';
 @import 'variables';
+
 @import 'social';
 @import 'gradient';
 
@@ -82,7 +88,7 @@ a {
   margin: 30px;
   border-radius: 50%;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  background-image: url("../img/face.jpg");
+  background-image: url('../img/face.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -119,7 +125,7 @@ footer {
       i {
         margin: 10px;
       }
-    } 
+    }
   }
 }
 
