@@ -1,0 +1,41 @@
+.header-desktop {
+  height: $frame-height;
+  justify-content: space-around;
+
+  .logo {
+    padding-bottom: 10px;
+    border-bottom: 2px solid transparent;
+    
+    &:hover, &:active {
+      border-bottom: 2px solid $font-color-main;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+    }
+  }
+}
+
+.nav-desktop {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .menu-item {
+    margin: 15px;
+    padding-bottom: 5px; 
+    display: flex;
+    align-items: center;
+    @include transition();
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    
+    &:hover, &.active {
+      border-bottom: 2px solid $font-color-main;
+    }
+    span {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+  }
+}

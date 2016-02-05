@@ -1,0 +1,46 @@
+.header-mobile {
+  display: none;
+  height: 60px;
+
+  .button-nav-toggle {
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .logo {
+    h1 { 
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.nav-mobile {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 998;
+
+  .menu-item {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
+    
+    &:hover, &.active {
+      background-color: #2472a4;
+    }
+    &.active {
+      border-left: 3px solid $font-color-main;
+    }
+    i {
+      padding: 15px;
+    }
+    span {
+      padding-left: 15px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+}

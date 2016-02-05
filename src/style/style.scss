@@ -1,0 +1,133 @@
+/* Main stylesheet */
+
+// Font Awesome
+@import '../../node_modules/font-awesome/scss/font-awesome';
+// iconate.js
+// @import '../../node_modules/iconate/...TODO'
+
+@import 'reset';
+@import 'variables';
+
+@import 'social';
+@import 'gradient';
+
+@mixin transition () {
+  transition: all 0.3s ease;
+}
+
+html, body {
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: $font-color-main;
+  font-size : 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  transition: background-color 1s ease;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+
+  &.sublink {
+    text-decoration: underline;
+  }
+}
+
+@import 'header';
+
+@import 'card';
+
+#home {
+  span {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 4rem;
+    text-align: center;
+  }
+  img {
+    width: 1500px;
+    height: 378px;
+    opacity: 0.8;
+  }
+}
+
+#aboutme {
+  .card-content div.text {
+    text-align: justify;
+  }
+}
+
+#face {
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+  border-radius: 50%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  background-image: url('../img/face.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#work {
+}
+
+#projects {
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: $frame-height;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .jobtitle {
+    padding: 20px;
+    h2 {
+      font-weight: 100;
+      font-size: 3rem;
+    }
+  }
+
+  .social {
+    a {
+      @include transition();
+      i {
+        margin: 10px;
+      }
+    }
+  }
+}
+
+// Media queries
+@import 'queries';

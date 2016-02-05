@@ -1,0 +1,25 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @include transition();
+  z-index: 999;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
+
+    h1 {
+      font-weight: 100;
+    }
+  }
+}
+
+@import 'header-desktop';
+
+@import 'header-mobile';
