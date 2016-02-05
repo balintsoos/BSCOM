@@ -1,6 +1,7 @@
 {
   "name": "BSCOM",
   "version": "2.0.0",
+  "private": true,
   "description": "Interactive resume of Balint Soos",
   "homepage": "http://balintsoos.com/",
   "authors": "Balint Soos <soosbalint95@gmail.com>",
@@ -19,6 +20,12 @@
     "url": "https://github.com/balintsoos/BSCOM/issues"
   },
   "license": "MIT",
+  "dependencies": {
+    "iconate": "^0.2.5",
+    "jquery": "^2.1.4",
+    "knockout": "^3.3.0",
+    "waypoints": "^4.0.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "cssnano": "^3.3.1",
@@ -30,10 +37,6 @@
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.4.2",
-    "gulp-util": "^3.0.6",
-    "iconate": "^0.2.5",
-    "jquery": "^2.1.4",
-    "knockout": "^3.3.0",
-    "waypoints": "^4.0.0"
+    "gulp-util": "^3.0.6"
   }
 }
