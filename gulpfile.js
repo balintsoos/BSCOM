@@ -52,8 +52,8 @@ gulp.task('build:CSS', function () {
     .pipe(rename('style.css'))
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
-    .pipe(postcss(preprocessors))
-    .pipe(rename('style.min.css'))
+      .pipe(postcss(preprocessors))
+      .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/style'));
 });

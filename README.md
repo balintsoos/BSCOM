@@ -14,7 +14,7 @@ My Interactive Portfolio and Resume site
 
 2. Run Gulp
 
-`$ gulp` or `$ gulp watch`
+`$ gulp` or `$ gulp build`
 
 **IMPORTANT!**
 If you would like to edit the `build` folder, you should know that your changes live until the next gulp build
@@ -32,3 +32,8 @@ Never upload the src folder to the server, it's for development purposes only.
 * Iconate.js
 * Node.js
 * Gulp
+
+## TODO
+* rebuild w/ React.js
+* use ES6 features w/ Babel
+* html building w/ ejs templates (index.html, error.html)
