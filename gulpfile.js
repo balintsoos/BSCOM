@@ -37,7 +37,7 @@ gulp.task('build:JS', function () {
 
 // HTML build
 gulp.task('build:HTML', function () {
-  gulp.src('./src/index.html')
+  gulp.src('./src/*.html')
     .pipe(gulp.dest('./dist'));
 });
 
@@ -58,7 +58,12 @@ gulp.task('build:CSS', function () {
     .pipe(gulp.dest('./dist/style'));
 });
 
-gulp.task('copy:FONTS', function () {
+gulp.task('copy:JSON', function () {
+  gulp.src('./src/*.json')
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('copy:FONT', function () {
   gulp.src('./node_modules/font-awesome/fonts/**/*')
     .pipe(gulp.dest('./dist/fonts'));
 });
@@ -96,6 +101,6 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['build']);
 
-gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:FONTS', 'copy:IMG']);
+gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
 
 gulp.task('build-development', ['build', 'watch']);
