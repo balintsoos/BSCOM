@@ -2,6 +2,7 @@ var $         = require('jquery');
 var ko        = require('knockout');
 var init      = require('./init.js');
 var iconate   = require('iconate');
+require('waypoints');
 
 function AppViewModel () {
   var App = this;
@@ -87,7 +88,7 @@ function AppViewModel () {
       }
     });
   };
-  
+
   // Initialize sections
   App.sections(init(App));
 }

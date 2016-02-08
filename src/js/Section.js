@@ -1,4 +1,5 @@
 var ko = require('knockout');
+require('waypoints');
 
 module.exports = function (App, obj) {
   var Section = {
@@ -7,11 +8,11 @@ module.exports = function (App, obj) {
     header:   obj.header,
     bg:       obj.bg
   };
-  
+
   Section.isSelected = ko.computed(function () {
     return (App.selectedItem().id === obj.id);
   });
-  
+
   Section.waypoints = {
     wpTop: new Waypoint({
       element: document.getElementById(obj.id),
@@ -29,6 +30,6 @@ module.exports = function (App, obj) {
       offset: '-50%',
     })
   };
-  
+
   return Section;
 };

@@ -20,6 +20,19 @@
   "bugs": {
     "url": "https://github.com/balintsoos/BSCOM/issues"
   },
+  "browser": {
+    "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js"
+  },
+  "browserify-shim": {
+    "waypoints": {
+      "exports": "waypoints"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
   "dependencies": {
     "iconate": "^0.2.5",
     "waypoints": "^4.0.0"
@@ -27,6 +40,7 @@
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
     "cssnano": "^3.3.1",
     "del": "^2.0.2",
     "font-awesome": "^4.5.0",
