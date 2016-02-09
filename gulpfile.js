@@ -1,10 +1,12 @@
 var del         = require('del'),
   gulp          = require('gulp'),
+  ejs           = require('gulp-ejs');
   sass          = require('gulp-sass'),
   gutil         = require('gulp-util'),
   rename        = require('gulp-rename'),
   uglify        = require('gulp-uglify'),
   postcss       = require('gulp-postcss'),
+  prettify      = require('gulp-prettify'),
   sourcemaps    = require('gulp-sourcemaps'),
   autoprefixer  = require('autoprefixer'),
   cssnano       = require('cssnano'),
@@ -37,7 +39,13 @@ gulp.task('build:JS', function () {
 
 // HTML build
 gulp.task('build:HTML', function () {
-  gulp.src('./src/*.html')
+  gulp.src('./src/templates/index.ejs')
+    .pipe(ejs().on('error', gutil.log))
+    .pipe(rename('index.html'))
+    .pipe(prettify({
+      indent_size: 2,
+      extra_liners: []
+    }))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -56,6 +64,11 @@ gulp.task('build:CSS', function () {
       .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/style'));
+});
+
+gulp.task('copy:HTML', function () {
+  gulp.src('./src/error.html')
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy:JSON', function () {
@@ -101,6 +114,6 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['build']);
 
-gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
+gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:HTML', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
 
 gulp.task('build-development', ['build', 'watch']);

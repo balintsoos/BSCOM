@@ -36,4 +36,3 @@ Never upload the src folder to the server, it's for development purposes only.
 ## TODO
 * rebuild w/ React.js
 * use ES6 features w/ Babel
-* html building w/ ejs templates (index.html, error.html)
