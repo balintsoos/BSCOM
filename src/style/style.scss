@@ -12,6 +12,18 @@
   transition: all 0.3s ease;
 }
 
+@mixin section ($sectionVariable, $order) {
+  order: $order;
+  span {
+    &:hover {
+      border-bottom: $border-bottom-width solid $sectionVariable;
+    }
+    &.active {
+      color: $sectionVariable;
+    }
+  }
+}
+
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -29,15 +41,11 @@ html {
 }
 
 body {
-  background-color: $background-color-home;
+  background-color: $background-color-main;
   color: $font-color-main;
   font-size : 1.6rem;
   font-family: 'Montserrat', sans-serif;
   line-height: 200%;
-
-  &.sticky {
-    background-color: $background-color-main;
-  }
 }
 
 .no-select {
@@ -134,6 +142,19 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   z-index: 2;
+}
+
+.insta {
+  position: absolute;
+  bottom: 10px;
+  font-size: 1rem;
+  color: $font-color-main;
+  &.insta-left {
+    left: 10px;
+  }
+  &.insta-right {
+    right: 10px;
+  }
 }
 
 footer {
