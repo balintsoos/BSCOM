@@ -4,7 +4,7 @@ module.exports = function (App) {
   return [
     new Section(App, {
       id: 'aboutme',
-      title: 'About Me',
+      title: 'About',
       header: 'About Me',
       bg: 'aboutme-bg'
     }),
@@ -19,6 +19,12 @@ module.exports = function (App) {
       title: 'Projects',
       header: 'My recent projects',
       bg: 'projects-bg'
+    }),
+    new Section(App, {
+      id: 'contact',
+      title: 'Contact',
+      header: 'Contact with Me',
+      bg: 'work-bg'
     })
   ];
 };

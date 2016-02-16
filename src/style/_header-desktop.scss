@@ -1,11 +1,13 @@
 .header-desktop {
   height: $frame-height;
-  justify-content: space-around;
+  justify-content: center;
 
   .logo {
+    order: 3;
+    margin: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid transparent;
-    
+
     &:hover, &:active {
       border-bottom: 2px solid $font-color-main;
     }
@@ -22,20 +24,29 @@
   align-items: center;
 
   .menu-item {
+    width: 90px;
+    height: 100%;
     margin: 15px;
-    padding-bottom: 5px; 
     display: flex;
     align-items: center;
-    @include transition();
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    
-    &:hover, &.active {
-      border-bottom: 2px solid $font-color-main;
-    }
+    justify-content: center;
+
     span {
       font-size: 1.8rem;
       text-transform: uppercase;
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      @include transition();
+
+      &:hover, &.active {
+        border-bottom: 2px solid $font-color-main;
+      }
     }
+
+    &.about {order: 1;}
+    &.work {order: 2;}
+    &.projects {order: 3;}
+    &.contact {order: 4;}
   }
 }

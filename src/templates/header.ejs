@@ -10,12 +10,17 @@
   </div>
 </nav>
 <header class="header header-desktop" data-bind="css: {sticky: isSticky}">
-  <div class="logo" data-bind="click: $root.goHome">
-    <h1 data-bind="text: headerTitle"></h1>
-  </div>
-  <nav class="nav nav-desktop" data-bind="foreach: $root.sections">
-    <div class="menu-item" data-bind="click: $root.selectItem, css: {active: isSelected}">
-      <span data-bind='text: title'></span>
+  <nav class="nav nav-desktop">
+    <div class="logo" data-bind="click: $root.goHome">
+      <h1>
+        <span class="firstname">balint</span>
+        <span class="lastname">soos</span>
+      </h1>
     </div>
+    <!-- ko foreach: $root.sections -->
+    <div class="menu-item" data-bind="click: $root.selectItem, css: id">
+      <span data-bind="text: title, css: {active: isSelected}"></span>
+    </div>
+    <!-- /ko -->
   </nav>
 </header>
