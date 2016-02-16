@@ -3,6 +3,7 @@ var ko        = require('knockout');
 var init      = require('./init.js');
 var iconate   = require('iconate');
 require('waypoints');
+//require('parallax');
 
 function AppViewModel () {
   var App = this;

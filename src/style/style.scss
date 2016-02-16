@@ -88,10 +88,6 @@ a {
 }
 
 #aboutme {
-  background-image: url('../img/prague.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: right center;
   .card {
     background-color: $background-color-aboutme;
     .card-content {
@@ -101,10 +97,13 @@ a {
       }
     }
   }
+  .background {
+    background-image: url('../img/prague.jpg');
+    order: 1;
+  }
 }
 
 #work {
-  justify-content: flex-end;
   .card {
     background-color: $background-color-work;
   }
@@ -117,13 +116,14 @@ a {
 }
 
 #contact {
-  justify-content: flex-end;
-  background-image: url('../img/insta.jpg');
-  background-size: contain;
-  background-attachment: fixed;
-  background-position: left center;
   .card {
     background-color: $background-color-contact;
+  }
+  .background {
+    background-image: url('../img/insta.jpg');
+    order: -1;
+    // hack
+    background-position: left center;
   }
 }
 
@@ -142,19 +142,6 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   z-index: 2;
-}
-
-.insta {
-  position: absolute;
-  bottom: 10px;
-  font-size: 1rem;
-  color: $font-color-main;
-  &.insta-left {
-    left: 10px;
-  }
-  &.insta-right {
-    right: 10px;
-  }
 }
 
 footer {
