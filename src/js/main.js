@@ -12,9 +12,6 @@ function AppViewModel () {
   App.isSticky      = ko.observable(false);
   App.sections      = ko.observableArray();
   App.selectedItem  = ko.observable({});
-  App.currentBg     = ko.computed(function () {
-    return App.selectedItem().bg || 'home-bg';
-  });
 
   // hide mobile menu
   $(".nav-mobile").hide();

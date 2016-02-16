@@ -1,9 +1,14 @@
 .header-desktop {
-  color: $font-color-header;
+  color: $font-color-main;
   height: $height-header;
   justify-content: center;
-  background-color: $background-color-header;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  @include transition();
+
+  &.sticky {
+    color: $font-color-header;
+    background-color: $background-color-header;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
 
   .logo {
     order: 3;

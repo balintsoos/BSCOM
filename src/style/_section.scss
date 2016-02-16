@@ -1,0 +1,33 @@
+section {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.card-header {
+  width: 100%;
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+.card-content {
+  width: 100%;
+  overflow: hidden;
+}

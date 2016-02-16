@@ -12,13 +12,6 @@
   transition: all 0.3s ease;
 }
 
-// colors for sections
-.home-bg      {background-color: #c0392b;}
-.aboutme-bg   {background-color: #2980b9;}
-.work-bg      {background-color: #16a085;}
-.projects-bg  {background-color: #2c3e50;}
-.contact-bg   {background-color: #27ae60;}
-
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -36,11 +29,15 @@ html {
 }
 
 body {
+  background-color: $background-color-home;
   color: $font-color-main;
   font-size : 1.6rem;
   font-family: 'Montserrat', sans-serif;
-  line-height: 150%;
-  transition: background-color 1s ease;
+  line-height: 200%;
+
+  &.sticky {
+    background-color: $background-color-main;
+  }
 }
 
 .no-select {
@@ -62,12 +59,19 @@ a {
 }
 
 @import 'header';
-
-@import 'card';
-
+@import 'section';
 @import 'social';
 
 #home {
+  height: 80%;
+  min-height: 80%;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color-home;
+  background-image: url('../img/keyboard.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
   span {
     text-transform: uppercase;
     font-size: 4rem;
@@ -76,21 +80,74 @@ a {
 }
 
 #aboutme {
-  .card-content div.text {
-    text-align: justify;
+  background-image: url('../img/prague.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right center;
+  .card {
+    background-color: $background-color-aboutme;
+    .card-content {
+      text-align: justify;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+#work {
+  justify-content: flex-end;
+  .card {
+    background-color: $background-color-work;
+  }
+}
+
+#projects {
+  .card {
+    background-color: $background-color-projects;
+  }
+}
+
+#contact {
+  justify-content: flex-end;
+  background-image: url('../img/insta.jpg');
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: left center;
+  .card {
+    background-color: $background-color-contact;
   }
 }
 
 #face {
+  position: absolute;
+  top: -150px;
+  left: 0;
+  right: 0;
   width: 300px;
   height: 300px;
-  margin: 30px;
+  margin: auto;
   border-radius: 50%;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   background-image: url('../img/face.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  z-index: 2;
+}
+
+footer {
+  width: 100%;
+  padding: 30px;
+  font-size: 1.3rem;
+  background-color: $background-color-footer;
+  color: $font-color-footer;
+  text-align: center;
+  span {
+    i {
+      color: #c0392b;
+    }
+  }
 }
 
 // Media queries
