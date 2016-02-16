@@ -24,7 +24,7 @@ module.exports = function (App) {
       id: 'contact',
       title: 'Contact',
       header: 'Contact with Me',
-      bg: 'work-bg'
+      bg: 'contact-bg'
     })
   ];
 };
