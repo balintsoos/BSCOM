@@ -1,11 +1,11 @@
-<header class="header header-mobile" data-bind="css: {sticky: isSticky}">
+<header class="header header-mobile">
   <div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
   <div class="logo" data-bind="click: $root.goHome">
-    <h1 data-bind="text: headerTitle"></h1>
+    <h1>Balint Soos</h1>
   </div>
 </header>
-<nav class="nav nav-mobile" data-bind="foreach: $root.sections, css: {sticky: isSticky}">
-  <div class="menu-item" data-bind="click: $root.selectItemAtMobile, css: {active: isSelected}">
+<nav class="nav nav-mobile" data-bind="foreach: $root.sections">
+  <div class="menu-item" data-bind="click: $root.selectItemAtMobile">
     <span data-bind='text: title'></span>
   </div>
 </nav>

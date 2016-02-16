@@ -2,14 +2,14 @@ var $         = require('jquery');
 var ko        = require('knockout');
 var init      = require('./init.js');
 var iconate   = require('iconate');
+
 require('waypoints');
-//require('parallax');
+require('parallax');
 
 function AppViewModel () {
   var App = this;
 
   // ========== Observables ==========
-  App.headerTitle   = ko.observable("Balint Soos");
   App.isSticky      = ko.observable(false);
   App.sections      = ko.observableArray();
   App.selectedItem  = ko.observable({});

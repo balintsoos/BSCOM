@@ -75,10 +75,6 @@ a {
   min-height: 80%;
   justify-content: center;
   align-items: center;
-  background-color: $background-color-home;
-  background-image: url('../img/keyboard.jpg');
-  background-size: cover;
-  background-attachment: fixed;
 
   span {
     text-transform: uppercase;
@@ -98,8 +94,7 @@ a {
     }
   }
   .background {
-    background-image: url('../img/prague.jpg');
-    order: 1;
+    order: -1;
   }
 }
 
@@ -113,35 +108,15 @@ a {
   .card {
     background-color: $background-color-projects;
   }
+  .background {
+    order: -1;
+  }
 }
 
 #contact {
   .card {
     background-color: $background-color-contact;
   }
-  .background {
-    background-image: url('../img/insta.jpg');
-    order: -1;
-    // hack
-    background-position: left center;
-  }
-}
-
-#face {
-  position: absolute;
-  top: -150px;
-  left: 0;
-  right: 0;
-  width: 300px;
-  height: 300px;
-  margin: auto;
-  border-radius: 50%;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-  background-image: url('../img/face.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 2;
 }
 
 footer {
