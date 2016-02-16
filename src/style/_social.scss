@@ -4,11 +4,11 @@
 
     i {
       padding: 0 5px 10px 5px;
-      border-bottom: 3px solid transparent;
+      border-bottom: $border-bottom-width solid transparent;
       @include transition();
 
       &:hover, &:active {
-        border-bottom: 3px solid $font-color-main;
+        border-bottom: $border-bottom-width solid $font-color-main;
       }
     }
   }

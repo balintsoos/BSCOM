@@ -1,15 +1,18 @@
 .header-desktop {
-  height: $frame-height;
+  color: $font-color-header;
+  height: $height-header;
   justify-content: center;
+  background-color: $background-color-header;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
 
   .logo {
     order: 3;
     margin: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid transparent;
+    border-bottom: $border-bottom-width solid transparent;
 
     &:hover, &:active {
-      border-bottom: 2px solid $font-color-main;
+      //border-bottom: $border-bottom-width solid $font-color-accent;
     }
 
     h1 {
@@ -35,12 +38,15 @@
       font-size: 1.8rem;
       text-transform: uppercase;
       padding-bottom: 5px;
-      border-bottom: 2px solid transparent;
+      border-bottom: $border-bottom-width solid transparent;
       cursor: pointer;
       @include transition();
 
-      &:hover, &.active {
-        border-bottom: 2px solid $font-color-main;
+      &:hover {
+        border-bottom: $border-bottom-width solid $font-color-accent;
+      }
+      &.active {
+        color: $font-color-accent;
       }
     }
 
