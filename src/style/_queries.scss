@@ -16,18 +16,60 @@
   .header-mobile {
     display: flex;
   }
-  .card-header h2 {
-    font-size: 1.8rem;
+  .card-header {
+    h2 {
+      font-size: 1.8rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+  }
+  .card {
+    padding: 70px 20px;
+
   }
   .card-content {
-    width: 85%;
-  }
-  .card-content .text {
-    width: 100%;
-    font-size: 1.4rem;
+    p {
+      font-size: 1.4rem;
+    }
   }
   #home span {
     width: 80%;
     font-size: 2.4rem;
+  }
+
+  section {
+    flex-direction: column;
+    min-height: 50%;
+  }
+  .card {
+    width: 100%;
+    min-height: 400px;
+  }
+  .background {
+    width: 100%;
+    height: 400px;
+    order: -2;
+  }
+  #contact {
+    .card {
+      text-align: center;
+    }
+  }
+  .social {
+    a {
+      margin: 0 20px 20px 0;
+
+      i {
+        padding: 15px;
+        &:hover, &:active {
+          border-bottom: $border-bottom-width solid transparent;
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: 15px;
   }
 }
