@@ -87,7 +87,6 @@ a {
   .card {
     background-color: $background-color-aboutme;
     .card-content {
-      text-align: justify;
       p {
         margin-bottom: 10px;
       }
@@ -107,6 +106,11 @@ a {
 #projects {
   .card {
     background-color: $background-color-projects;
+    .card-content {
+      p {
+        margin-bottom: 10px;
+      }
+    }
   }
   .background {
     order: -1;
