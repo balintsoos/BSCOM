@@ -4,64 +4,60 @@
   #home span {
     width: 45%;
   }
-  #card-content .text {
-    width: 60%;
-  }
 }
 
 @media only screen and (max-width: 1000px) {
   .header-desktop {
     display: none;
   }
+
   .header-mobile {
     display: flex;
   }
+
+  section {
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 50vh;
+    justify-content: flex-start;
+    padding: 20px 20px;
+  }
+
+  .background {
+    width: 100%;
+    height: 50vh;
+    order: -2;
+  }
+
   .card-header {
     h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
+  }
+
+  .card-content {
     h3 {
       font-size: 1.6rem;
     }
-  }
-  .card {
-    padding: 70px 20px;
 
-  }
-  .card-content {
     p {
       font-size: 1.4rem;
     }
   }
+
   #home span {
     width: 80%;
     font-size: 2.4rem;
   }
 
-  section {
-    flex-direction: column;
-    min-height: 50%;
-  }
-  .card {
-    width: 100%;
-    min-height: 400px;
-  }
-  .background {
-    width: 100%;
-    height: 400px;
-    order: -2;
-  }
-  #contact {
-    .card {
-      text-align: center;
-    }
-  }
   .social {
     a {
-      margin: 0 20px 20px 0;
-
       i {
-        padding: 15px;
+        padding: 0 20px 20px 0;
         &:hover, &:active {
           border-bottom: $border-bottom-width solid transparent;
         }

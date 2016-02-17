@@ -9,10 +9,53 @@ require('parallax');
 function AppViewModel () {
   var App = this;
 
-  // ========== Observables ==========
+  // Observables
   App.isSticky      = ko.observable(false);
   App.sections      = ko.observableArray();
   App.selectedItem  = ko.observable({});
+
+  // Functions
+  App.smoothScroll = function (id) {
+    $('html, body').animate({
+      scrollTop: $(id).offset().top
+    }, 1000);
+  }
+
+  App.goHome = function () {
+    App.smoothScroll("#home");
+    if (showNav) {
+      App.toggleNav();
+    }
+  };
+
+  App.selectItem = function (item) {
+    App.selectedItem(item);
+    App.smoothScroll("#" + item.id);
+  };
+
+  App.selectItemAtMobile = function (item) {
+    App.selectItem(item);
+    App.toggleNav();
+  };
+
+  App.toggleNav = function () {
+    App.iconate();
+    $(".nav-mobile").slideToggle(300, "swing", function() {
+      showNav = !showNav;
+    });
+  }
+
+  // Helper function
+  App.setSelectedItem = function(id) {
+    App.sections().forEach(function (section) {
+      if (section.id === id) {
+        App.selectedItem(section);
+      }
+    });
+  };
+
+  // Initialize sections
+  App.sections(init(App));
 
   // hide mobile menu
   $(".nav-mobile").hide();
@@ -37,13 +80,14 @@ function AppViewModel () {
   };
 
   var iconElement = document.getElementById('iconate');
+
   App.iconate = function () {
     var options = {
       from: '',
       to: '',
       animation: 'verticalFlip',
     }
-    if(showNav) {
+    if (showNav) {
       options.from = 'fa-times';
       options.to = 'fa-bars';
     } else {
@@ -52,43 +96,6 @@ function AppViewModel () {
     }
     iconate(iconElement, options);
   }
-
-  // ========== Functions ==========
-  App.goHome = function () {
-    location.href = "#home";
-    if(showNav) {
-      setTimeout(App.toggleNav, 400);
-    }
-  };
-
-  App.selectItem = function (item) {
-    App.selectedItem(item);
-    location.href = "#" + item.id;
-  };
-
-  App.selectItemAtMobile = function (item) {
-    App.selectItem(item);
-    setTimeout(App.toggleNav, 400);
-  };
-
-  App.toggleNav = function () {
-    App.iconate();
-    $(".nav-mobile").slideToggle(300, "swing", function() {
-      showNav = !showNav;
-    });
-  }
-
-  // Helper function
-  App.setSelectedItem = function(id) {
-    App.sections().forEach(function (section) {
-      if (section.id === id) {
-        App.selectedItem(section);
-      }
-    });
-  };
-
-  // Initialize sections
-  App.sections(init(App));
 }
 
 ko.applyBindings(new AppViewModel());
