@@ -1,0 +1,63 @@
+.header-desktop {
+  color: $font-color-main;
+  height: $height-header;
+  justify-content: center;
+  @include transition();
+
+  &.sticky {
+    color: $font-color-header;
+    background-color: $background-color-header;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+
+  .logo {
+    order: 3;
+    margin: 20px;
+    padding-bottom: 10px;
+    border-bottom: $border-bottom-width solid transparent;
+
+    &:hover, &:active {
+      //border-bottom: $border-bottom-width solid $font-color-accent;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+    }
+  }
+}
+
+.nav-desktop {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .menu-item {
+    width: 90px;
+    height: 100%;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      padding: 0 2px 2px 2px;
+      border-bottom: $border-bottom-width solid transparent;
+      cursor: pointer;
+      @include transition();
+
+      &:hover {
+        border-bottom: $border-bottom-width solid $font-color-accent;
+      }
+      &.active {
+        color: $font-color-accent;
+      }
+    }
+
+    &.aboutme {@include section($background-color-aboutme, 1);}
+    &.work {@include section($background-color-work, 2);}
+    &.projects {@include section($background-color-projects, 3);}
+    &.contact {@include section($background-color-contact, 4);}
+  }
+}

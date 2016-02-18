@@ -1,0 +1,46 @@
+section {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.card {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 80px;
+  order: 0;
+}
+
+.card-header {
+  width: 100%;
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+.card-content {
+  width: 100%;
+
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+.background {
+  width: 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: right center;
+  background-repeat: no-repeat;
+  order: 0;
+  overflow: hidden;
+}

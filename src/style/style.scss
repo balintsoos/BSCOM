@@ -1,0 +1,147 @@
+/* Main stylesheet */
+
+// Font Awesome
+@import '../../node_modules/font-awesome/scss/font-awesome';
+// iconate.js
+@import '../../node_modules/iconate/dist/iconate.min.css';
+
+@import 'reset';
+@import 'variables';
+
+@mixin transition () {
+  transition: all 0.3s ease;
+}
+
+@mixin section ($sectionVariable, $order) {
+  order: $order;
+  span {
+    &:hover {
+      border-bottom: $border-bottom-width solid $sectionVariable;
+    }
+    &.active {
+      color: $sectionVariable;
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $background-color-aboutme;
+  color: $font-color-main;
+  font-size : 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 200%;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+
+  &.sublink {
+    text-decoration: underline;
+  }
+}
+
+@import 'header';
+@import 'section';
+@import 'social';
+
+#home {
+  justify-content: center;
+  align-items: center;
+
+  span {
+    text-transform: uppercase;
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .arrow-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+#aboutme {
+  .card {
+    background-color: $background-color-aboutme;
+    .card-content {
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .background {
+    order: -1;
+  }
+}
+
+#work {
+  .card {
+    background-color: $background-color-work;
+  }
+}
+
+#projects {
+  .card {
+    background-color: $background-color-projects;
+    .card-content {
+      p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .background {
+    order: -1;
+  }
+}
+
+#contact {
+  .card {
+    background-color: $background-color-contact;
+  }
+}
+
+footer {
+  width: 100%;
+  padding: 30px;
+  font-size: 1.3rem;
+  background-color: $background-color-footer;
+  color: $font-color-footer;
+  text-align: center;
+  span {
+    i {
+      color: #c0392b;
+    }
+  }
+}
+
+// Media queries
+@import 'queries';

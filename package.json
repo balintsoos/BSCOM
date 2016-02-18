@@ -1,23 +1,66 @@
 {
   "name": "BSCOM",
-  "version": "1.1.0",
+  "version": "2.5.8",
+  "private": true,
   "description": "Interactive resume of Balint Soos",
-  "authors": [
-    "Balint Soos <soosbalint95@gmail.com>"
-  ],
   "homepage": "http://balintsoos.com/",
+  "authors": "Balint Soos <soosbalint95@gmail.com>",
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Balint Soos",
+      "email": "soosbalint95@gmail.com",
+      "url": "http://balintsoos.com/"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/balintsoos/BSCOM.git"
+    "url": "https://github.com/balintsoos/BSCOM.git"
+  },
+  "bugs": {
+    "url": "https://github.com/balintsoos/BSCOM/issues"
+  },
+  "browser": {
+    "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js",
+    "parallax": "./src/js/parallax.js"
+  },
+  "browserify-shim": {
+    "waypoints": {
+      "exports": "waypoints"
+    },
+    "parallax": {
+      "exports": "parallax",
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
   },
   "devDependencies": {
-    "bower": "^1.5.2",
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-cssmin": "^0.13.0",
-    "grunt-contrib-sass": "^0.9.2",
-    "grunt-contrib-watch": "^0.6.1"
+    "autoprefixer": "^6.0.3",
+    "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
+    "cssnano": "^3.3.1",
+    "del": "^2.0.2",
+    "font-awesome": "^4.5.0",
+    "gulp": "^3.9.0",
+    "gulp-ejs": "^2.0.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-prettify": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.6",
+    "iconate": "^0.2.7",
+    "jquery": "^2.1.4",
+    "knockout": "^3.4.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "waypoints": "^4.0.0"
   }
 }

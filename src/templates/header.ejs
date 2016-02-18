@@ -1,0 +1,26 @@
+<header class="header header-mobile">
+  <div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
+  <div class="logo" data-bind="click: $root.goHome">
+    <h1>Balint Soos</h1>
+  </div>
+</header>
+<nav class="nav nav-mobile" data-bind="foreach: $root.sections">
+  <div class="menu-item" data-bind="click: $root.selectItemAtMobile">
+    <span data-bind='text: title'></span>
+  </div>
+</nav>
+<header class="header header-desktop" data-bind="css: {sticky: isSticky}">
+  <nav class="nav nav-desktop">
+    <div class="logo" data-bind="click: $root.goHome">
+      <h1>
+        <span class="firstname">balint</span>
+        <span class="lastname">soos</span>
+      </h1>
+    </div>
+    <!-- ko foreach: $root.sections -->
+    <div class="menu-item" data-bind="click: $root.selectItem, css: id">
+      <span data-bind="text: title, css: {active: isSelected}"></span>
+    </div>
+    <!-- /ko -->
+  </nav>
+</header>

@@ -1,26 +1,24 @@
 # BalintSoos.com
-My Interactive Portfolio and Resume site 
+My Interactive Portfolio and Resume site
 
 [Check it out!](http://balintsoos.com)
 
-> I am buliding an "Interactive Resume" site, highly rely on frameworks and libraries such as MVC frameworks like Angular.js or Knockout.js, CSS preprocessors like SASS, taskers like Grunt, package managers like Bower, etc etc. This website is just like a playground. I always tweak it, playing with new stuff to create the best workflow for myself and learn as much as possible.
+> I am buliding an "Interactive Resume" site, highly rely on frameworks and libraries such as MVC frameworks like Angular.js or Knockout.js, CSS preprocessors like SASS, taskers like Gulp, package managers like Bower, etc. This website is just like a playground. I always tweak it, playing with new stuff to create the best workflow for myself and learn as much as possible.
 >
 
-## Development
-First, you should install dependencies:
+## Instructions
 
-1. `$ npm install`
-2. `$ bower install`
+1. Install dependencies
 
-Then start grunt to build the dev environment and watch for changes:
-* `$ grunt dev`
+`$ npm install`
 
-To build the distributable site:
-* `$ grunt`
+2. Run Gulp
+
+`$ gulp` or `$ gulp build`
 
 **IMPORTANT!**
-If you would like to edit the `build` folder, you should know that your changes live until the next grunt build 
-or until you change something in the `src` folder if you start grunt with `$ grunt dev` command.
+If you would like to edit the `build` folder, you should know that your changes live until the next gulp build
+or until you change something in the `src` folder if you start gulp with `$ gulp watch` command.
 Never upload the src folder to the server, it's for development purposes only.
 
 ## Used technologies
@@ -29,9 +27,12 @@ Never upload the src folder to the server, it's for development purposes only.
 * Sass
 * JavaScript
 * jQuery
-* Node.js
 * Knockout.js
 * Waypoints.js
 * Iconate.js
-* Grunt
-* Bower
+* Node.js
+* Gulp
+
+## TODO
+* rebuild w/ React.js
+* use ES6 features w/ Babel

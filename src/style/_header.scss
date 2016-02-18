@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @include transition();
+  z-index: 999;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    @include transition();
+    cursor: pointer;
+
+    h1 {
+      .firstname {
+        
+      }
+      .lastname {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@import 'header-desktop';
+
+@import 'header-mobile';

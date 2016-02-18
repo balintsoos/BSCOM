@@ -1,0 +1,71 @@
+// Media queries
+
+@media only screen and (max-width: 1300px) {
+  #home span {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .header-desktop {
+    display: none;
+  }
+
+  .header-mobile {
+    display: flex;
+  }
+
+  section {
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 50vh;
+    justify-content: flex-start;
+    padding: 20px 20px;
+  }
+
+  .background {
+    width: 100%;
+    height: 50vh;
+    order: -2;
+  }
+
+  .card-header {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .card-content {
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  #home span {
+    width: 80%;
+    font-size: 2.4rem;
+  }
+
+  .social {
+    a {
+      i {
+        padding: 0 20px 20px 0;
+        &:hover, &:active {
+          border-bottom: $border-bottom-width solid transparent;
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: 15px;
+  }
+}
