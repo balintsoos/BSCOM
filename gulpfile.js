@@ -6,7 +6,7 @@ var del         = require('del'),
   rename        = require('gulp-rename'),
   uglify        = require('gulp-uglify'),
   postcss       = require('gulp-postcss'),
-  prettify      = require('gulp-prettify'),
+  htmlmin       = require('gulp-htmlmin'),
   sourcemaps    = require('gulp-sourcemaps'),
   autoprefixer  = require('autoprefixer'),
   cssnano       = require('cssnano'),
@@ -42,9 +42,10 @@ gulp.task('build:HTML', function () {
   gulp.src('./src/templates/index.ejs')
     .pipe(ejs().on('error', gutil.log))
     .pipe(rename('index.html'))
-    .pipe(prettify({
-      indent_size: 2,
-      extra_liners: []
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+      minifyJS: true
     }))
     .pipe(gulp.dest('./dist'));
 });
