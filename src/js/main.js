@@ -9,10 +9,17 @@ require('parallax');
 function AppViewModel () {
   var App = this;
 
+  // hide mobile menu
+  $(".nav-mobile").hide();
+  var showNav = false;
+
   // Observables
   App.isSticky      = ko.observable(false);
   App.sections      = ko.observableArray();
   App.selectedItem  = ko.observable({});
+
+  // Initialize sections
+  App.sections(init(App));
 
   // Functions
   App.smoothScroll = function (id) {
@@ -21,8 +28,8 @@ function AppViewModel () {
     }, 1000);
   }
 
-  App.goHome = function () {
-    App.smoothScroll("#home");
+  App.goTo = function (id) {
+    App.smoothScroll(id);
     if (showNav) {
       App.toggleNav();
     }
@@ -38,9 +45,38 @@ function AppViewModel () {
     App.toggleNav();
   };
 
+  App.iconate = function (iconId, options) {
+    var iconElement = document.getElementById(iconId);
+    iconate(iconElement, options);
+  }
+
+  App.scrollArrow = function (iconId) {
+    var options = {
+      from: 'fa-chevron-down',
+      to: 'fa-chevron-down',
+      animation: 'fadeOutBottom',
+    }
+    App.iconate(iconId, options);
+  }
+
   App.toggleNav = function () {
-    App.iconate();
-    $(".nav-mobile").slideToggle(300, "swing", function() {
+    var options = {
+      from: '',
+      to: '',
+      animation: 'verticalFlip',
+    }
+
+    if (showNav) {
+      options.from = 'fa-times';
+      options.to = 'fa-bars';
+    } else {
+      options.to = 'fa-times';
+      options.from = 'fa-bars';
+    }
+
+    App.iconate('hamburger', options);
+
+    $(".nav-mobile").slideToggle(300, "swing", function () {
       showNav = !showNav;
     });
   }
@@ -53,13 +89,6 @@ function AppViewModel () {
       }
     });
   };
-
-  // Initialize sections
-  App.sections(init(App));
-
-  // hide mobile menu
-  $(".nav-mobile").hide();
-  var showNav = false;
 
   // create waypoints for Home section
   var waypoints = {
@@ -78,24 +107,6 @@ function AppViewModel () {
       offset: -1,
     }),
   };
-
-  var iconElement = document.getElementById('iconate');
-
-  App.iconate = function () {
-    var options = {
-      from: '',
-      to: '',
-      animation: 'verticalFlip',
-    }
-    if (showNav) {
-      options.from = 'fa-times';
-      options.to = 'fa-bars';
-    } else {
-      options.to = 'fa-times';
-      options.from = 'fa-bars';
-    }
-    iconate(iconElement, options);
-  }
 }
 
 ko.applyBindings(new AppViewModel());

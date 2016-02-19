@@ -1,6 +1,6 @@
 <header class="header header-mobile">
-  <div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="iconate" class="fa fa-bars fa-fw fa-lg"></i></div>
-  <div class="logo" data-bind="click: $root.goHome">
+  <div class="button-nav-toggle" data-bind="click: $root.toggleNav"><i id="hamburger" class="fa fa-bars fa-fw fa-lg"></i></div>
+  <div class="logo" data-bind="click: $root.goTo.bind($data, '#home')">
     <h1>Balint Soos</h1>
   </div>
 </header>
@@ -11,7 +11,7 @@
 </nav>
 <header class="header header-desktop" data-bind="css: {sticky: isSticky}">
   <nav class="nav nav-desktop">
-    <div class="logo" data-bind="click: $root.goHome">
+    <div class="logo" data-bind="click: $root.goTo.bind($data, '#home')">
       <h1>
         <span class="firstname">balint</span>
         <span class="lastname">soos</span>
