@@ -8,17 +8,11 @@ My Interactive Portfolio and Resume site
 
 ## Instructions
 
-1. Install dependencies
+1. Install dependencies:
 `$ npm install`
 
-2. Run Gulp
-
+2. Run Gulp:
 `$ gulp` or `$ gulp build`
-
-**IMPORTANT!**
-If you would like to edit the `build` folder, you should know that your changes live until the next gulp build
-or until you change something in the `src` folder if you start gulp with `$ gulp watch` command.
-Never upload the src folder to the server, it's for development purposes only.
 
 ## Used technologies
 * HTML5
