@@ -50,7 +50,7 @@ gulp.task('build:HTML', function () {
 });
 
 // Sass and CSS build
-gulp.task('build:CSS', function () {
+gulp.task('build:CSS', ['iconateHack'], function () {
   var preprocessors = [
     autoprefixer({browsers: ['last 2 versions']}),
     cssnano()
@@ -66,25 +66,40 @@ gulp.task('build:CSS', function () {
     .pipe(gulp.dest('./dist/style'));
 });
 
+gulp.task('iconateHack', function () {
+  copy({
+    from: './node_modules/iconate/dist/iconate.min.css',
+    to: './dist/style'
+  });
+});
+
 gulp.task('copy:HTML', function () {
-  gulp.src('./src/error.html')
-    .pipe(gulp.dest('./dist'));
+  copy({
+    from: './src/error.html',
+    to: './dist'
+  });
 });
 
 gulp.task('copy:JSON', function () {
-  gulp.src('./src/*.json')
-    .pipe(gulp.dest('./dist'));
+  copy({
+    from: './src/*.json',
+    to: './dist'
+  });
 });
 
 gulp.task('copy:FONT', function () {
-  gulp.src('./node_modules/font-awesome/fonts/**/*')
-    .pipe(gulp.dest('./dist/fonts'));
+  copy({
+    from: './node_modules/font-awesome/fonts/**/*',
+    to: './dist/fonts'
+  });
 });
 
 // Image copy
 gulp.task('copy:IMG', function () {
-  gulp.src('./src/img/**/*')
-    .pipe(gulp.dest('./dist/img'));
+  copy({
+    from: './src/img/**/*',
+    to: './dist/img'
+  });
 });
 
 // Watcher
@@ -117,3 +132,26 @@ gulp.task('default', ['build']);
 gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:HTML', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
 
 gulp.task('build-development', ['build', 'watch']);
+
+// Helper function
+function copy(path, to) {
+  var FROM;
+  var TO;
+
+  if (typeof path === "object") {
+    if (!path.from || !path.to) {
+      return;
+    }
+
+    FROM = path.from;
+    TO = path.to;
+  }
+
+  if (typeof path === 'string' && typeof to === 'string') {
+    FROM = path;
+    TO = to;
+  }
+
+  gulp.src(FROM)
+    .pipe(gulp.dest(TO));
+}
