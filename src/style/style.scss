@@ -1,26 +1,11 @@
-/* Main stylesheet */
+// Main stylesheet
 
 // Font Awesome
 @import '../../node_modules/font-awesome/scss/font-awesome';
 
 @import 'reset';
 @import 'variables';
-
-@mixin transition () {
-  transition: all 0.3s ease;
-}
-
-@mixin section ($sectionVariable, $order) {
-  order: $order;
-  span {
-    &:hover {
-      border-bottom: $border-bottom-width solid $sectionVariable;
-    }
-    &.active {
-      color: $sectionVariable;
-    }
-  }
-}
+@import 'mixins';
 
 html, body {
   height: 100%;
@@ -55,11 +40,14 @@ body {
   user-select: none;
 }
 
+.bs-button {
+  cursor: pointer;
+}
+
 a {
   color: currentColor;
   text-decoration: none;
-
-  &.sublink {
+  &.bs-sublink {
     text-decoration: underline;
   }
 }
@@ -72,77 +60,65 @@ a {
   justify-content: center;
   align-items: center;
 
-  span {
+  .bs-cover-text {
     text-transform: uppercase;
     font-size: 4rem;
     text-align: center;
   }
 
-  .arrow-wrapper {
+  .bs-arrow-wrapper {
     position: absolute;
     left: 0;
     bottom: 15px;
     width: 100%;
     text-align: center;
-    i {
+    .bs-icon {
       cursor: pointer;
     }
   }
 }
 
 #aboutme {
-  .card {
+  .bs-card {
     background-color: $background-color-aboutme;
-    .card-content {
+    .bs-card-content {
       p {
         margin-bottom: 10px;
       }
     }
   }
-  .background {
+  .bs-card-background {
     order: -1;
   }
 }
 
 #work {
-  .card {
+  .bs-card {
     background-color: $background-color-work;
   }
 }
 
 #projects {
-  .card {
+  .bs-card {
     background-color: $background-color-projects;
-    .card-content {
+    .bs-card-content {
       p {
         margin-bottom: 10px;
       }
     }
   }
-  .background {
+  .bs-card-background {
     order: -1;
   }
 }
 
 #contact {
-  .card {
+  .bs-card {
     background-color: $background-color-contact;
   }
 }
 
-footer {
-  width: 100%;
-  padding: 30px;
-  font-size: 1.3rem;
-  background-color: $background-color-footer;
-  color: $font-color-footer;
-  text-align: center;
-  span {
-    i {
-      color: #c0392b;
-    }
-  }
-}
+@import 'footer';
 
 // Media queries
 @import 'queries';

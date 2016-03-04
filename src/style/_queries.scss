@@ -1,45 +1,39 @@
 // Media queries
 
 @media only screen and (max-width: 1300px) {
-  #home span {
+  #home .bs-cover-text {
     width: 45%;
   }
 }
 
 @media only screen and (max-width: 1000px) {
-  .header-desktop {
+  .bs-header-desktop {
     display: none;
   }
 
-  .header-mobile {
+  .bs-header-mobile {
     display: flex;
   }
 
-  section {
+  .bs-section {
     flex-direction: column;
     min-height: 100%;
   }
 
-  .card {
+  .bs-card {
     width: 100%;
     min-height: 50vh;
     justify-content: flex-start;
     padding: 20px 20px;
   }
 
-  .background {
-    width: 100%;
-    height: 50vh;
-    order: -2;
-  }
-
-  .card-header {
-    h2 {
+  .bs-card-header {
+    .bs-card-header-title {
       font-size: 2rem;
     }
   }
 
-  .card-content {
+  .bs-card-content {
     h3 {
       font-size: 1.6rem;
     }
@@ -49,7 +43,13 @@
     }
   }
 
-  #home span {
+  .bs-card-background {
+    width: 100%;
+    height: 50vh;
+    order: -2;
+  }
+
+  #home .bs-cover-text {
     width: 80%;
     font-size: 2.4rem;
   }
@@ -65,7 +65,7 @@
     }
   }
 
-  footer {
+  .bs-footer {
     padding: 15px;
   }
 }

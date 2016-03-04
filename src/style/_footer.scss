@@ -1,0 +1,11 @@
+.bs-footer {
+  width: 100%;
+  padding: 30px;
+  font-size: 1.3rem;
+  background-color: $background-color-footer;
+  color: $font-color-footer;
+  text-align: center;
+  .bs-icon {
+    color: #c0392b;
+  }
+}

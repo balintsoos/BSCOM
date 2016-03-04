@@ -1,4 +1,4 @@
-.header-desktop {
+.bs-header-desktop {
   color: $font-color-main;
   height: $height-header;
   justify-content: center;
@@ -10,7 +10,7 @@
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
   }
 
-  .logo {
+  .bs-logo {
     order: 3;
     margin: 20px;
     padding-bottom: 10px;
@@ -20,18 +20,18 @@
       //border-bottom: $border-bottom-width solid $font-color-accent;
     }
 
-    h1 {
+    .bs-name {
       font-size: 3.8rem;
     }
   }
 }
 
-.nav-desktop {
+.bs-nav-desktop {
   height: 100%;
   display: flex;
   align-items: center;
 
-  .menu-item {
+  .bs-nav-item {
     width: 90px;
     height: 100%;
     margin: 15px;
@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: center;
 
-    span {
+    .bs-nav-item-text {
       font-size: 1.8rem;
       text-transform: uppercase;
       padding: 0 2px 2px 2px;
