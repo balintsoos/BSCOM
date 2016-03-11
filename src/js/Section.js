@@ -1,35 +1,48 @@
+'use strict';
+
 var ko = require('knockout');
 require('waypoints');
 
-module.exports = function (App, obj) {
-  var Section = {
-    id:       obj.id,
-    title:    obj.title,
-    header:   obj.header,
-    bg:       obj.bg
-  };
+module.exports = function (App, config) {
+  if (!App || typeof App !== 'object') {
+    return new Error('Section.js - App object is missing');
+  }
 
-  Section.isSelected = ko.computed(function () {
-    return (App.selectedItem().id === obj.id);
+  if (!config || typeof App !== 'object') {
+    return new Error('Section.js - config object is missing');
+  }
+
+  if (App === {} || config === {}) {
+    return new Error('Section.js - empty parameter objects');
+  }
+
+  if (!config.id || !config.title || !config.header) {
+    return new Error('Section.js - config object is not complete');
+  }
+
+  this.id = config.id;
+  this.title = config.title;
+  this.header = config.header;
+
+  this.isSelected = ko.computed(function () {
+    return App.selectedItem().id === config.id;
   });
 
-  Section.waypoints = {
-    wpTop: new Waypoint({
-      element: document.getElementById(obj.id),
+  this.waypoints = {
+    top: new Waypoint({
+      element: document.getElementById(config.id),
       handler: function () {
-        App.setSelectedItem(obj.id);
+        App.setSelectedItem(config.id);
       },
       offset: '20%',
     }),
 
-    wpBottom: new Waypoint({
-      element: document.getElementById(obj.id),
+    bottom: new Waypoint({
+      element: document.getElementById(config.id),
       handler: function () {
-        App.setSelectedItem(obj.id);
+        App.setSelectedItem(config.id);
       },
       offset: '-50%',
     })
   };
-
-  return Section;
 };

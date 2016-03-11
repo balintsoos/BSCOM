@@ -1,26 +1,33 @@
+'use strict';
+
 var Section = require('./Section.js');
 
 module.exports = function (App) {
-  return [
-    new Section(App, {
+
+  var sections = [
+    {
       id: 'aboutme',
       title: 'About',
       header: 'About Me'
-    }),
-    new Section(App, {
+    },
+    {
       id: 'work',
       title: 'Work',
       header: "I've worked with"
-    }),
-    new Section(App, {
+    },
+    {
       id: 'projects',
       title: 'Projects',
-      header: 'My recent projects'
-    }),
-    new Section(App, {
+      header: 'My recent project'
+    },
+    {
       id: 'contact',
       title: 'Contact',
-      header: 'Contact with Me'
-    })
+      header: 'Get in touch'
+    }
   ];
+
+  return sections.forEach(function (config) {
+    return new Section(App, config);
+  });
 };

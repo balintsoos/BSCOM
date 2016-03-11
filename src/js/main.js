@@ -1,3 +1,5 @@
+'use strict';
+
 var $         = require('jquery');
 var ko        = require('knockout');
 var init      = require('./init.js');
@@ -85,7 +87,7 @@ function AppViewModel () {
   App.setSelectedItem = function (id) {
     App.sections().forEach(function (section) {
       if (section.id === id) {
-        App.selectedItem(section);
+        return App.selectedItem(section);
       }
     });
   };

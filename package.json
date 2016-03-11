@@ -4,8 +4,23 @@
   "private": true,
   "description": "Interactive resume of Balint Soos",
   "homepage": "http://balintsoos.com/",
-  "authors": "Balint Soos <soosbalint95@gmail.com>",
+  "keywords": [
+    "balint",
+    "soos",
+    "balintsoos",
+    "soosbalint",
+    "developer",
+    "javascript",
+    "html",
+    "css",
+    "front-end"
+  ],
   "license": "MIT",
+  "author": {
+    "name": "Balint Soos",
+    "email": "soosbalint95@gmail.com",
+    "url": "http://balintsoos.com/"
+  },
   "contributors": [
     {
       "name": "Balint Soos",
@@ -39,6 +54,12 @@
     "transform": [
       "browserify-shim"
     ]
+  },
+  "scripts": {
+    "test": "mocha -R spec ./src/js/Section.spec.js",
+    "build": "npm run build-prod",
+    "build-prod": "gulp build-production",
+    "build-dev": "gulp build-development"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",

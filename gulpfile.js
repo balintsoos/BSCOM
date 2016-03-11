@@ -130,7 +130,9 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['build']);
 
-gulp.task('build', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:HTML', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
+gulp.task('build', ['build-production']);
+
+gulp.task('build-production', ['clean', 'build:JS', 'build:HTML', 'build:CSS', 'copy:HTML', 'copy:JSON', 'copy:FONT', 'copy:IMG']);
 
 gulp.task('build-development', ['build', 'watch']);
 
