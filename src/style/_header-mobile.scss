@@ -1,21 +1,21 @@
-.header-mobile {
+.bs-header-mobile {
   display: none;
   height: 60px;
   background-color: rgba(0,0,0,0.8);
 
-  .button-nav-toggle {
+  .bs-nav-toggle {
     padding: 15px;
-    cursor: pointer;
   }
 
-  .logo {
-    h1 {
+  .bs-logo {
+    .bs-name {
       font-size: 2.5rem;
     }
   }
 }
 
-.nav-mobile {
+.bs-nav-mobile {
+  display: none;
   position: fixed;
   top: 60px;
   width: 100%;
@@ -23,7 +23,7 @@
   z-index: 998;
   background-color: rgba(0,0,0,0.8);
 
-  .menu-item {
+  .bs-nav-item {
     position: relative;
     height: 40px;
     display: flex;
@@ -35,7 +35,7 @@
       border-left: 3px solid $font-color-main;
       background-color: #2472a4;
     }
-    span {
+    .bs-nav-item-text {
       padding-left: 35px;
       font-size: 1.5rem;
       text-transform: uppercase;

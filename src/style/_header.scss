@@ -1,4 +1,4 @@
-.header {
+.bs-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,17 +8,17 @@
   @include transition();
   z-index: 999;
 
-  .logo {
+  .bs-logo {
     display: flex;
     align-items: center;
     @include transition();
     cursor: pointer;
 
-    h1 {
-      .firstname {
-        
+    .bs-name {
+      .bs-firstname {
+
       }
-      .lastname {
+      .bs-lastname {
         text-transform: uppercase;
       }
     }

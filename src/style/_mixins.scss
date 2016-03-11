@@ -1,0 +1,17 @@
+// Sass Mixins
+
+@mixin transition () {
+  transition: all 0.3s ease;
+}
+
+@mixin section ($sectionVariable, $order) {
+  order: $order;
+  span {
+    &:hover {
+      border-bottom: $border-bottom-width solid $sectionVariable;
+    }
+    &.active {
+      color: $sectionVariable;
+    }
+  }
+}

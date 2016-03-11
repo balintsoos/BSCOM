@@ -1,4 +1,4 @@
-section {
+.bs-section {
   position: relative;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@ section {
   align-items: stretch;
 }
 
-.card {
+.bs-card {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -18,16 +18,16 @@ section {
   order: 0;
 }
 
-.card-header {
+.bs-card-header {
   width: 100%;
   margin-bottom: 30px;
 
-  h2 {
+  .bs-card-header-title {
     font-size: 3rem;
   }
 }
 
-.card-content {
+.bs-card-content {
   width: 100%;
 
   h3 {
@@ -35,7 +35,7 @@ section {
   }
 }
 
-.background {
+.bs-card-background {
   width: 50%;
   background-size: cover;
   background-attachment: fixed;

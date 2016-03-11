@@ -9,14 +9,11 @@ require('parallax');
 function AppViewModel () {
   var App = this;
 
-  // hide mobile menu
-  $(".nav-mobile").hide();
-  var showNav = false;
-
   // Observables
   App.isSticky      = ko.observable(false);
   App.sections      = ko.observableArray();
   App.selectedItem  = ko.observable({});
+  App.navPanelState = ko.observable(false);
 
   // Initialize sections
   App.sections(init(App));
@@ -30,7 +27,7 @@ function AppViewModel () {
 
   App.goTo = function (id) {
     App.smoothScroll(id);
-    if (showNav) {
+    if (App.navPanelState()) {
       App.toggleNav();
     }
   };
@@ -45,7 +42,7 @@ function AppViewModel () {
     App.toggleNav();
   };
 
-  App.iconate = function (iconId, options) {
+  App.iconHandler = function (iconId, options) {
     var iconElement = document.getElementById(iconId);
     iconate(iconElement, options);
   }
@@ -56,7 +53,7 @@ function AppViewModel () {
       to: 'fa-chevron-down',
       animation: 'fadeOutBottom',
     }
-    App.iconate(iconId, options);
+    App.iconHandler(iconId, options);
   }
 
   App.toggleNav = function () {
@@ -66,7 +63,7 @@ function AppViewModel () {
       animation: 'verticalFlip',
     }
 
-    if (showNav) {
+    if (App.navPanelState()) {
       options.from = 'fa-times';
       options.to = 'fa-bars';
     } else {
@@ -74,15 +71,18 @@ function AppViewModel () {
       options.from = 'fa-bars';
     }
 
-    App.iconate('hamburger', options);
+    App.iconHandler('hamburger', options);
+    App.navPanelHandler();
+  }
 
-    $(".nav-mobile").slideToggle(300, "swing", function () {
-      showNav = !showNav;
+  App.navPanelHandler = function () {
+    $('.bs-nav-mobile').slideToggle(300, "swing", function () {
+      App.navPanelState(!App.navPanelState());
     });
   }
 
   // Helper function
-  App.setSelectedItem = function(id) {
+  App.setSelectedItem = function (id) {
     App.sections().forEach(function (section) {
       if (section.id === id) {
         App.selectedItem(section);
