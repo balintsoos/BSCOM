@@ -27,7 +27,7 @@ module.exports = function (App) {
     }
   ];
 
-  return sections.forEach(function (config) {
+  return sections.map(function (config) {
     return new Section(App, config);
   });
 };
