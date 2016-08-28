@@ -59,7 +59,9 @@
     "test": "mocha -R spec ./src/js/Section.spec.js",
     "build": "npm run build-prod",
     "build-prod": "gulp build-production",
-    "build-dev": "gulp build-development"
+    "build-dev": "gulp build-development",
+    "prepublish": "npm run build",
+    "publish": "gulp publish"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",

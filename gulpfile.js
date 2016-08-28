@@ -128,6 +128,13 @@ gulp.task('watch', function () {
     });
 });
 
+gulp.task('publish', function () {
+  copy({
+    from: './dist/**/*',
+    to: './'
+  });
+});
+
 gulp.task('default', ['build']);
 
 gulp.task('build', ['build-production']);
